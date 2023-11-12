@@ -1,7 +1,7 @@
-<?php 
-if(is_array($onesp)){
+<?php
+if (is_array($onesp)) {
     // Không sử dụng extract vì lý do bảo mật
-}else{
+} else {
     echo "không có dữ liệu";
 }
 ?>
@@ -25,11 +25,13 @@ if(is_array($onesp)){
                 <label for="name_sp">
                     Tên Sản phẩm
                 </label><br>
-                <input type="text" class="form-control" name="name_sp" id="name_sp" value="<?= isset($onesp['name_sp']) ? $onesp['name_sp'] : '' ?>"><br>
+                <input type="text" class="form-control" name="name_sp" id="name_sp"
+                    value="<?= isset($onesp['name_sp']) ? $onesp['name_sp'] : '' ?>"><br>
                 <label for="price_sp">
                     Giá sản phẩm
                 </label><br>
-                <input type="text" class="form-control" name="price_sp" id="price_sp" value="<?= isset($onesp['price_sp']) ? $onesp['price_sp'] : '' ?>"><br>
+                <input type="text" class="form-control" name="price_sp" id="price_sp"
+                    value="<?= isset($onesp['price_sp']) ? $onesp['price_sp'] : '' ?>"><br>
                 <label for="img_sp">
                     Ảnh sản phẩm
                 </label><br>
@@ -37,7 +39,8 @@ if(is_array($onesp)){
                 <label for="mota_sp">
                     Mô tả sản phẩm
                 </label><br>
-                <textarea name="mota_sp" class="form-control" rows="3"><?= isset($onesp['mota']) ? $onesp['mota'] : '' ?></textarea>
+                <textarea name="mota_sp" class="form-control"
+                    rows="3"><?= isset($onesp['mota']) ? $onesp['mota'] : '' ?></textarea>
                 <input type="hidden" name="id_sp" value="<?= isset($onesp['id_sp']) ? $onesp['id_sp'] : '' ?>">
                 <div class="mt-3">
                     <input type="submit" name="updatesp" value="Cập nhật sản phẩm" class="btn btn-success">

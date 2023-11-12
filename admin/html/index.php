@@ -1,18 +1,17 @@
-
 <?php
-  include "/xampp/htdocs/du_an_one/model/pdo.php";
-  include "/xampp/htdocs/du_an_one/model/danhmuc.php";
-  include "/xampp/htdocs/du_an_one/model/sanpham.php";
-  include "../html/header.php";
-  if(isset($_GET['act'])){
+include "/xampp/htdocs/du_an_one/model/pdo.php";
+include "/xampp/htdocs/du_an_one/model/danhmuc.php";
+include "/xampp/htdocs/du_an_one/model/sanpham.php";
+include "../html/header.php";
+if (isset($_GET['act'])) {
     $act = $_GET['act'];
-     switch($act){
+    switch ($act) {
         // danh mục
         case "adddm":
             // kiểm tra xem nút thêm mới có tồn tại và được ấn hay không
-            if(isset($_POST['themmoi']) && ($_POST['themmoi'])){
+            if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 // kiểm tra tên loại có trống không
-                if($_POST['tenloai'] == ''){
+                if ($_POST['tenloai'] == '') {
                     echo '
                     <div class="container mt-3">
                         <div class="alert alert-danger alert-dismissible">
@@ -21,7 +20,7 @@
                         </div>
                         </div>
                     ';
-                }else{
+                } else {
                     $tenloai = $_POST['tenloai'];
                     insert_danhmuc($tenloai);
                     echo '
@@ -43,7 +42,7 @@
             include "../html/danhmuc/list_danhmuc.php";
             break;
         case "xoadm":
-            if(isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc']) > 0 ){
+            if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc']) > 0) {
                 $id = $_GET['id_danhmuc'];
                 delete_danhmuc($id);
             }
@@ -51,14 +50,14 @@
             include "../html/danhmuc/list_danhmuc.php";
             break;
         case "suadm":
-            if(isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc']) > 0 ){
+            if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc']) > 0) {
                 $id = $_GET['id_danhmuc'];
                 $list_one = load_one_dm($id);
             }
             include "../html/danhmuc/sua_danhmuc.php";
             break;
         case "updatedm":
-            if(isset($_POST['capnhat']) && ($_POST['capnhat'])){
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $id = $_POST['iddm'];
                 $name = $_POST['tenloai'];
                 update_dm($id, $name);
@@ -73,11 +72,11 @@
             }
             include "../html/danhmuc/sua_danhmuc.php";
             break;
-            // hết danh mục
+        // hết danh mục
 
         //    sản phẩm
         case "addsp":
-            if(isset($_POST['themmoisp']) && ($_POST['themmoisp'])){
+            if (isset($_POST['themmoisp']) && ($_POST['themmoisp'])) {
                 $name_sp = $_POST['name_sp'];
                 $price_sp = $_POST['price_sp'];
                 $id_danhmuc = $_POST['id_danhmuc'];
@@ -86,9 +85,9 @@
                 $img_sp = $_FILES['img_sp']['name'];
                 $target_div = "/xampp/htdocs/du_an_one/upload/";
                 $target_file = $target_div . basename($_FILES['img_sp']['name']);
-                move_uploaded_file($_FILES['img_sp']['tmp_name'],$target_file);
-               if($name_sp == ""|| $price_sp == "" || $id_danhmuc == "" || $target_file == "" || $mota == ""){
-                echo '
+                move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file);
+                if ($name_sp == "" || $price_sp == "" || $id_danhmuc == "" || $target_file == "" || $mota == "") {
+                    echo '
                 <script>
                         function thongbao(){
                          alert("bạn hãy nhập đầy đủ thông tin !");
@@ -96,9 +95,9 @@
                         thongbao();
                         </script>
                 ';
-               }else{
-                insert_sanpham($name_sp,$img_sp,$price_sp,$mota,$id_danhmuc);
-                echo '
+                } else {
+                    insert_sanpham($name_sp, $img_sp, $price_sp, $mota, $id_danhmuc);
+                    echo '
                 <div class="container mt-3">
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -106,7 +105,7 @@
                         </div>
                         </div>
                 ';
-               }
+                }
             }
             $listdm = load_all_dm();
             include "../html/sanpham/add_sanpham.php";
@@ -115,8 +114,8 @@
         case "listsp":
             $kyw = '';
             $id_danhmuc = 0;
-            if(isset($_POST['timkiem']) && ($_POST['timkiem'])){
-                if($_POST['kyw'] == ""){
+            if (isset($_POST['timkiem']) && ($_POST['timkiem'])) {
+                if ($_POST['kyw'] == "") {
                     $kyw = '';
                     $id_danhmuc = 0;
                 } else {
@@ -130,9 +129,9 @@
             $listdm = load_all_dm();
             include "../html/sanpham/list_sanpham.php";
             break;
-            // xóa sản phẩm
+        // xóa sản phẩm
         case "xoasp":
-            if(isset($_GET['id_sp']) && ($_GET['id_sp']) > 0){
+            if (isset($_GET['id_sp']) && ($_GET['id_sp']) > 0) {
                 $id = $_GET['id_sp'];
                 delete_sanpham($id);
             }
@@ -142,7 +141,7 @@
             include "../html/sanpham/list_sanpham.php";
             break;
         case "suasp":
-            if(isset($_GET['id_sp']) && ($_GET['id_sp']) > 0){
+            if (isset($_GET['id_sp']) && ($_GET['id_sp']) > 0) {
                 $id = $_GET['id_sp'];
                 $onesp = load_one_sanpham($id);
             }
@@ -150,23 +149,27 @@
             include "../html/sanpham/update_sanpham.php";
             break;
         case "updatesp":
-            if(isset($_POST['updatesp']) && ($_POST['updatesp'])){
+            if (isset($_POST['updatesp']) && ($_POST['updatesp'])) {
                 $id = $_POST['id_sp'];
                 $name = $_POST['name_sp'];
                 $price = $_POST['price_sp'];
-                $mota = $_POST['mota'];
-                $id_danhmuc= $_POST['id_danhmuc'];
-                update_sanpham($id,$name,$img,$price,$mota,$id_danhmuc);
+                $mota = $_POST['mota_sp'];
+                $id_danhmuc = $_POST['id_danhmuc'];
+                $img_sp = $_FILES['img_sp']['name'];
+                $target_div = "/xampp/htdocs/du_an_one/upload/";
+                $target_file = $target_div . basename($_FILES['img_sp']['name']);
+                move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file);
+                update_sanpham($id, $name, $img_sp, $price, $mota, $id_danhmuc);
             }
             $listdm = load_all_dm();
             $listsp = load_sp("", 0);
             include "../html/sanpham/list_sanpham.php";
             break;
-     }
+    }
 
-  }else{
+} else {
     include "../html/home.php";
-  }
-  include "../html/footer.php";
+}
+include "../html/footer.php";
 
 ?>

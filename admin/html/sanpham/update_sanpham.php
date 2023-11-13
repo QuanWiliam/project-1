@@ -43,7 +43,7 @@ if (is_array($onesp)) {
                     rows="3"><?= isset($onesp['mota']) ? $onesp['mota'] : '' ?></textarea>
                 <input type="hidden" name="id_sp" value="<?= isset($onesp['id_sp']) ? $onesp['id_sp'] : '' ?>">
                 <div class="mt-3">
-                    <input type="submit" name="updatesp" value="Cập nhật sản phẩm" class="btn btn-success">
+                    <input type="submit" name="capnhat" value="Cập nhật sản phẩm" class="btn btn-success">
                     <a href="index.php?act=listsp">
                         <input type="button" value="Danh sách sản phẩm" class="btn btn-warning">
                     </a>

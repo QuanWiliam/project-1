@@ -149,17 +149,17 @@ if (isset($_GET['act'])) {
             include "../html/sanpham/update_sanpham.php";
             break;
         case "updatesp":
-            if (isset($_POST['updatesp']) && ($_POST['updatesp'])) {
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $id = $_POST['id_sp'];
                 $name = $_POST['name_sp'];
                 $price = $_POST['price_sp'];
                 $mota = $_POST['mota_sp'];
                 $id_danhmuc = $_POST['id_danhmuc'];
-                $img_sp = $_FILES['img_sp']['name'];
-                $target_div = "/xampp/htdocs/du_an_one/upload/";
+                $img = $_FILES['img_sp']['name'];
+                $target_div = "../../upload/";
                 $target_file = $target_div . basename($_FILES['img_sp']['name']);
-                move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file);
-                update_sanpham($id, $name, $img_sp, $price, $mota, $id_danhmuc);
+                move_uploaded_file($_FILES['img_sp']['tmp_name'],$target_file);
+                update_sanpham($id, $name, $img, $price, $mota, $id_danhmuc);
             }
             $listdm = load_all_dm();
             $listsp = load_sp("", 0);

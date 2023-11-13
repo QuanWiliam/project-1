@@ -33,7 +33,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="widgets.html"
+                  href="../html/index.php?act=taikhoan"
                   aria-expanded="false"
                   ><i class="mdi mdi-chart-bubble"></i
                   ><span class="hide-menu">Tài khoản</span></a

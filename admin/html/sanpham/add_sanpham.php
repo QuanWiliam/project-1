@@ -1,4 +1,4 @@
-<h1>hello</h1>
+
 <div class="container-fluid">
     <div class="form_add">
         <h1>Thêm sản phẩm</h1>

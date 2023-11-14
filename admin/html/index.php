@@ -1,7 +1,8 @@
 <?php
-include "/xampp/htdocs/du_an_one/model/pdo.php";
-include "/xampp/htdocs/du_an_one/model/danhmuc.php";
-include "/xampp/htdocs/du_an_one/model/sanpham.php";
+include "/xampp/htdocs/project-1/model/pdo.php";
+include "/xampp/htdocs/project-1/model/danhmuc.php";
+include "/xampp/htdocs/project-1/model/sanpham.php";
+include "/xampp/htdocs/project-1/model/taikhoan.php";
 include "../html/header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -164,6 +165,91 @@ if (isset($_GET['act'])) {
             $listdm = load_all_dm();
             $listsp = load_sp("", 0);
             include "../html/sanpham/list_sanpham.php";
+            break;
+
+        case "taikhoan":
+            $listtk = load_taikhoan();
+            include "../html/taikhoan/list_taikhoan.php";
+            break;
+        case "addtk":
+            if (isset($_POST['themmoitk']) && ($_POST['themmoitk'])) {
+                $name_tk = $_POST['name_tk'];
+                $pass_tk = $_POST['pass_tk'];
+                $email_tk = $_POST['email_tk'];
+                $addr_tk = $_POST['addr_tk'];
+                $tel_tk = $_POST['tel_tk'];
+
+                if ($name_tk == "" || $pass_tk == "" || $email_tk == "" || $addr_tk == "" || $tel_tk == "") {
+                    echo '
+                <script>
+                        function thongbao(){
+                         alert("bạn hãy nhập đầy đủ thông tin !");
+                        }
+                        thongbao();
+                        </script>
+                ';
+                } else {
+                    insert_taikhoan($name_tk,$pass_tk,$email_tk,$addr_tk,$tel_tk);
+                    echo '
+                <div class="container mt-3">
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            <strong>Thông tin!</strong> Bạn thêm sản phẩm thành công.
+                        </div>
+                        </div>
+                ';
+                }
+            }
+            include "../html/taikhoan/add_taikhoan.php";
+            break;
+        case "xoatk":
+            if(isset($_GET['id_tk']) && ($_GET['id_tk']) > 0){
+                $id = $_GET['id_tk'];
+                delete_taikhoan($id);
+            }
+            $listtk = load_taikhoan();
+            include "../html/taikhoan/list_taikhoan.php";
+            break;
+        case "suatk":
+            if(isset($_GET['id_tk']) && ($_GET['id_tk']) > 0){
+                $id = $_GET['id_tk'];
+                $listtk = load_one_taikhoan($id);
+
+            }
+            include "../html/taikhoan/update_taikhoan.php";
+            break;
+        case "updatetk":
+            if(isset($_POST['capnhat']) && ($_POST['capnhat']) > 0){
+                $id_tk = $_POST['id_tk'];
+                $name_tk = $_POST['name_tk'];
+                $pass_tk = $_POST['pass_tk'];
+                $email_tk = $_POST['email_tk'];
+                $addr_tk = $_POST['addr_tk'];
+                $tel_tk = $_POST['tel_tk'];
+
+                if ($name_tk == "" || $pass_tk == "" || $email_tk == "" || $addr_tk == "" || $tel_tk == "") {
+                    echo '
+                <script>
+                        function thongbao(){
+                         alert("bạn hãy nhập đầy đủ thông tin !");
+                        }
+                        thongbao();
+                        </script>
+                ';
+                } else {
+                    update_taikhoan($id_tk,$name_tk,$pass_tk,$email_tk,$addr_tk,$tel_tk);
+                    echo '
+                <div class="container mt-3">
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            <strong>Thông tin!</strong> Bạn cập nhật thành công.
+                        </div>
+                        </div>
+                ';
+                }
+            }
+            $listtk = load_taikhoan();
+            include "../html/taikhoan/list_taikhoan.php";
             break;
     }
 

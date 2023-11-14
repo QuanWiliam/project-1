@@ -9,7 +9,7 @@ function delete_sanpham($id)
   $sql = "delete from sanpham where id_sp=" . $id;
   pdo_query($sql);
 }
-function load_sp($kyw = "", $id_danhmuc = 0)
+function load_sp($kyw, $id_danhmuc)
 {
   $sql = "select * from sanpham where 1 ";
   if ($kyw != "") {

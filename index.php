@@ -21,7 +21,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc'] > 0)) {
                 $id_danhmuc = $_GET['id_danhmuc'];
                 $dssp = load_sp("", $id_danhmuc);
-                $tendm = load_ten_dm($id_danhmuc);
+                $tendm = load_ten_dm( $id_danhmuc);
                 include "view/sanpham.php";
             } else {
                 include "view/home.php";

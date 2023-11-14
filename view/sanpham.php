@@ -7,7 +7,7 @@
 <div class="row product__filter">
     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
         <?php
-        foreach ($sphome as $sp) {
+        foreach ($dssp as $sp) {
             extract($sp);
             $img = $img_path . $img_sp;
             echo '<div class="product__item">

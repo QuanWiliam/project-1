@@ -22,9 +22,30 @@ function load_sp($kyw = "", $id_danhmuc = 0)
   $listsp = pdo_query($sql);
   return $listsp;
 }
+// đây là load sap ở shop
+function load_sp_home_shop()
+{
+  $sql = "select * from sanpham where 1 order by id_sp desc ";
+  $listsp = pdo_query($sql);
+  return $listsp;
+}
 function load_sp_home()
 {
-  $sql = "select * from sanpham where 1 order by id_sp desc limit 0,9";
+  $sql = "select * from sanpham where 1 order by id_sp desc limit 0,7";
+  $listsp = pdo_query($sql);
+  return $listsp;
+}
+// đây là load sản phẩm mới 
+function load_sp_home_new_arr()
+{
+  $sql = "select * from sanpham where 1 order by id_sp desc limit 0,3";
+  $listsp = pdo_query($sql);
+  return $listsp;
+}
+// đây là load sản phẩm hot sales
+function load_sp_home_hot()
+{
+  $sql = "select * from sanpham where 1 order by id_sp desc limit 4,7";
   $listsp = pdo_query($sql);
   return $listsp;
 }

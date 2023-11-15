@@ -84,7 +84,7 @@ if (isset($_GET['act'])) {
                 $mota = $_POST['mota_sp'];
 
                 $img_sp = $_FILES['img_sp']['name'];
-                $target_div = "/xampp/htdocs/du_an_one/upload/";
+                $target_div = "../../upload/";
                 $target_file = $target_div . basename($_FILES['img_sp']['name']);
                 move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file);
                 if ($name_sp == "" || $price_sp == "" || $id_danhmuc == "" || $target_file == "" || $mota == "") {

@@ -59,10 +59,10 @@ function update_sanpham($id, $name, $img, $price, $mota, $id_danhmuc)
 {
 
   if ($img != "") {
-    $sql = "UPDATE sanpham SET id_danhmuc = {$id_danhmuc}, name_sp = {$name}, img_sp = {$img}, price_sp = {$price}, mota = {$mota} WHERE id_sp=" . $id;
+    $sql = "UPDATE sanpham SET id_danhmuc = '$id_danhmuc', name_sp = '$name', img_sp = '$img', price_sp = '$price', mota = '$mota' WHERE id_sp=" . $id;
     pdo_execute($sql);
   } else {
-    $sql = "UPDATE sanpham SET id_danhmuc = {$id_danhmuc}, name_sp = {$name}, price_sp = {$price}, mota = {$mota} WHERE id_sp=" . $id;
+    $sql = "UPDATE sanpham SET id_danhmuc = '$id_danhmuc', name_sp = '$name', price_sp = '$price', mota = '$mota' WHERE id_sp=" . $id;
     pdo_execute($sql);
   }
 }

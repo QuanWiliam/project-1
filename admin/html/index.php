@@ -1,8 +1,8 @@
 <?php
-include "/xampp/htdocs/project-1/model/pdo.php";
-include "/xampp/htdocs/project-1/model/danhmuc.php";
-include "/xampp/htdocs/project-1/model/sanpham.php";
-include "/xampp/htdocs/project-1/model/taikhoan.php";
+include "../../model/pdo.php";
+include "../../model//danhmuc.php";
+include "../../model//taikhoan.php";
+include "../../model//sanpham.php";
 include "../html/header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];

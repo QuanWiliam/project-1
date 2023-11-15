@@ -35,7 +35,8 @@ if (is_array($onesp)) {
                 <label for="img_sp">
                     Ảnh sản phẩm
                 </label><br>
-                <input type="file" class="form-control" name="img_sp" id="img_sp"><br>
+                <img width=200px src="../../upload/<?= $onesp['img_sp'] ?>" alt=""> <br>
+                <input type="file" name="img_sp" id="">
                 <label for="mota_sp">
                     Mô tả sản phẩm
                 </label><br>

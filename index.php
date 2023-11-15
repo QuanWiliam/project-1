@@ -17,6 +17,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'blog':
             include "view/blog.php";
             break;
+        case 'sanpham':
+            if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc'])) {
+                $id_danhmuc = $_GET['id_danhmuc'];
+                $dssp = load_sp("", $id_danhmuc);
+                $tendm = load_ten_dm($id_danhmuc);
+                include "view/sanpham.php";
+            }
+            include "view/sanpham.php";
+            break;
 
         case 'shop':
             $dmsp = load_all_dm();
@@ -27,12 +36,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/shop.php";
             break;
         case 'chitiet':
-            if(isset($_GET['id_sp']) && ($_GET['id_sp']) > 0){
+            if (isset($_GET['id_sp']) && ($_GET['id_sp']) > 0) {
                 $id = $_GET['id_sp'];
                 $dmsp = load_all_dm();
                 $sphome = load_sp_home();
                 $sphomeShop = load_sp_home_shop();
-                
+
                 $loadone = load_one_sanpham($id);
                 $sphomeNew = load_sp_home_new_arr();
                 $sphomeHot = load_sp_home_hot();

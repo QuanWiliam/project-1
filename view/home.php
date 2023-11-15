@@ -95,9 +95,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="filter__controls">
+
                     <li class="active" data-filter="*">Bán chạy nhất</li>
                     <li data-filter=".new-arrivals">Điểm đến mới</li>
                     <li data-filter=".hot-sales">Giảm giá sốc</li>
+
                 </ul>
             </div>
         </div>

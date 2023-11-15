@@ -159,7 +159,7 @@ if (isset($_GET['act'])) {
                 $img = $_FILES['img_sp']['name'];
                 $target_div = "../../upload/";
                 $target_file = $target_div . basename($_FILES['img_sp']['name']);
-                move_uploaded_file($_FILES['img_sp']['tmp_name'],$target_file);
+                move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file);
                 update_sanpham($id, $name, $img, $price, $mota, $id_danhmuc);
             }
             $listdm = load_all_dm();
@@ -189,7 +189,7 @@ if (isset($_GET['act'])) {
                         </script>
                 ';
                 } else {
-                    insert_taikhoan($name_tk,$pass_tk,$email_tk,$addr_tk,$tel_tk);
+                    insert_taikhoan($name_tk, $pass_tk, $email_tk, $addr_tk, $tel_tk);
                     echo '
                 <div class="container mt-3">
                         <div class="alert alert-success alert-dismissible">
@@ -203,7 +203,7 @@ if (isset($_GET['act'])) {
             include "../html/taikhoan/add_taikhoan.php";
             break;
         case "xoatk":
-            if(isset($_GET['id_tk']) && ($_GET['id_tk']) > 0){
+            if (isset($_GET['id_tk']) && ($_GET['id_tk']) > 0) {
                 $id = $_GET['id_tk'];
                 delete_taikhoan($id);
             }
@@ -211,7 +211,7 @@ if (isset($_GET['act'])) {
             include "../html/taikhoan/list_taikhoan.php";
             break;
         case "suatk":
-            if(isset($_GET['id_tk']) && ($_GET['id_tk']) > 0){
+            if (isset($_GET['id_tk']) && ($_GET['id_tk']) > 0) {
                 $id = $_GET['id_tk'];
                 $listtk = load_one_taikhoan($id);
 
@@ -219,7 +219,7 @@ if (isset($_GET['act'])) {
             include "../html/taikhoan/update_taikhoan.php";
             break;
         case "updatetk":
-            if(isset($_POST['capnhat']) && ($_POST['capnhat']) > 0){
+            if (isset($_POST['capnhat']) && ($_POST['capnhat']) > 0) {
                 $id_tk = $_POST['id_tk'];
                 $name_tk = $_POST['name_tk'];
                 $pass_tk = $_POST['pass_tk'];
@@ -237,7 +237,7 @@ if (isset($_GET['act'])) {
                         </script>
                 ';
                 } else {
-                    update_taikhoan($id_tk,$name_tk,$pass_tk,$email_tk,$addr_tk,$tel_tk);
+                    update_taikhoan($id_tk, $name_tk, $pass_tk, $email_tk, $addr_tk, $tel_tk);
                     echo '
                 <div class="container mt-3">
                         <div class="alert alert-success alert-dismissible">

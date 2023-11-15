@@ -101,6 +101,7 @@
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
                             <li><a href="index.php?act=shop">Shop</a></li>
+
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">About Us</a></li>

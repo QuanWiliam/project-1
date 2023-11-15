@@ -9,7 +9,7 @@ function delete_sanpham($id)
   $sql = "delete from sanpham where id_sp=" . $id;
   pdo_query($sql);
 }
-function load_sp($kyw = "", $id_danhmuc = 0)
+function load_sp($kyw, $id_danhmuc)
 {
   $sql = "select * from sanpham where 1 ";
   if ($kyw != "") {
@@ -57,13 +57,22 @@ function load_one_sanpham($id)
 }
 function update_sanpham($id, $name, $img, $price, $mota, $id_danhmuc)
 {
-  
+
   if ($img != "") {
-    $sql = "UPDATE sanpham SET id_danhmuc = {$id_danhmuc}, name_sp = {$name}, img_sp = {$img}, price_sp = {$price}, mota = {$mota} WHERE id_sp=".$id;
+    $sql = "UPDATE sanpham SET id_danhmuc = {$id_danhmuc}, name_sp = {$name}, img_sp = {$img}, price_sp = {$price}, mota = {$mota} WHERE id_sp=" . $id;
     pdo_execute($sql);
   } else {
-    $sql = "UPDATE sanpham SET id_danhmuc = {$id_danhmuc}, name_sp = {$name}, price_sp = {$price}, mota = {$mota} WHERE id_sp=".$id;
+    $sql = "UPDATE sanpham SET id_danhmuc = {$id_danhmuc}, name_sp = {$name}, price_sp = {$price}, mota = {$mota} WHERE id_sp=" . $id;
     pdo_execute($sql);
   }
+}
+
+// hàm này để lấy tên danh mục 
+function load_ten_dm($id_danhmuc)
+{
+  $sql = "select * from danhmuc where id_danhmuc=" . $id_danhmuc;
+  $dm = pdo_query_one($sql);
+  extract($dm);
+  return $name_danhmuc;
 }
 ?>

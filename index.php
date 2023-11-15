@@ -5,9 +5,11 @@ include "model/danhmuc.php";
 include "view/header.php";
 include "global.php";
 
+
 $sphome = load_sp_home();
 $sphomeNew = load_sp_home_new_arr();
 $sphomeHot = load_sp_home_hot();
+
 
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
@@ -15,6 +17,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'blog':
             include "view/blog.php";
             break;
+
         case 'shop':
             $dmsp = load_all_dm();
             $sphome = load_sp_home();
@@ -35,7 +38,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $sphomeHot = load_sp_home_hot();
             }
             include "view/chitietsanpham.php";
-            break;
+
     }
 } else {
     include "view/home.php";

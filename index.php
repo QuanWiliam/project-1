@@ -22,15 +22,22 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $id_danhmuc = $_GET['id_danhmuc'];
                 $dssp = load_sp("", $id_danhmuc);
                 $tendm = load_ten_dm($id_danhmuc);
-                include "view/sanpham.php";
             }
             include "view/sanpham.php";
             break;
 
         case 'shop':
+            $limit = 9;
+            if (isset($_POST['number'])) {
+                $number = $_POST['number'];
+                $start = ($number - 1) * $limit;
+            } else {
+                $start = 0;
+            }
+            $sphomeShop = load_limit_9_pro($start, $limit);
+            $count = count_pro();
             $dmsp = load_all_dm();
             $sphome = load_sp_home();
-            $sphomeShop = load_sp_home_shop();
             $sphomeNew = load_sp_home_new_arr();
             $sphomeHot = load_sp_home_hot();
             include "view/shop.php";

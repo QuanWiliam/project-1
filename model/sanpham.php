@@ -80,4 +80,23 @@ function load_ten_dm($id_danhmuc)
   extract($dm);
   return $name_danhmuc;
 }
+// xac dinh so btton can in ra
+function count_pro()
+{
+  $sql = "SELECT * FROM SANPHAM";
+  $pro = pdo_query($sql);
+  $i = 0;
+  foreach ($pro as $row) {
+    $i++;
+  }
+  $number = ceil($i / 9);
+  return $number;
+}
+// LOAD SAN PHAM TU = LIMIT TU VI TRI START
+function load_limit_9_pro($start, $limit)
+{
+  $sql = "SELECT * FROM SANPHAM WHERE ORDER BY ID_SP DESC LIMIT $start,$limit";
+  $pro = pdo_query($sql);
+  return $pro;
+}
 ?>

@@ -107,6 +107,7 @@
             <!-- đây là sản phẩm mới -->
             <?php
             foreach ($sphomeNew as $sp) {
+                // var_dump($sp);
                 extract($sp);
                 $img = $img_path . $img_sp;
                 echo '
@@ -122,7 +123,15 @@
                             </div>
                             <div class="product__item__text">
                                 <h6>' . $name_sp . '</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
+                                <div>
+                                <form action="index.php?act=addtocart" method="post">
+                                    <input type="hidden" name="id" value="' . $id_sp . '">
+                                    <input type="hidden" name="name" value="' . $name_sp . '">
+                                    <input type="hidden" name="img" value="' . $img . '">
+                                    <input type="hidden" name="price" value="' . $price_sp . '">
+                                    <input type="submit" name="addtocart" value="+ Add To Cart">
+                                </form>
+                            </div>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
@@ -434,6 +443,17 @@
     </div>
 </section>
 <!-- Product Section End -->
+
+<!-- from add-cart -->
+<!-- <div>
+                                <form action="index.php?act=addtocart" method="post">
+                                    <input type="hidden" name="id" value="' . $id . '">
+                                    <input type="hidden" name="name_sp" value="' . $name_sp . '">
+                                    <input type="hidden" name="img" value="' . $img . '">
+                                    <input type="hidden" name="price_sp" value="' . $price_sp . '">
+                                    <input type="submit" name="addtocart" value="+ Add To Cart">
+                                </form>
+                            </div> -->
 
 <!-- Categories Section Begin -->
 <section class="categories spad">

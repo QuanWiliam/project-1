@@ -55,6 +55,11 @@ function load_one_sanpham($id)
   $list_one = pdo_query_one($sql);
   return $list_one;
 }
+function load_sanpham_cungloai($id, $id_danhmuc){
+    $sql = "select * from sanpham where id_danhmuc=".$id_danhmuc." and id_sp <>".$id;
+    $listcungloai = pdo_query($sql);
+    return $listcungloai;
+}
 function update_sanpham($id, $name, $img, $price, $mota, $id_danhmuc)
 {
 

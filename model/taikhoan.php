@@ -24,5 +24,11 @@ function insert_taikhoan($name,$pass,$email,$address,$tel){
    pdo_execute($sql);
  }
 
+ function check_taikhoan($username, $password){
+     $sql = "select * from taikhoan where name_tk='$username' and pass_tk='$password'";
+     $tk = pdo_query_one($sql);
+     return $tk;
+ }
+
 
 ?>

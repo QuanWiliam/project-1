@@ -161,22 +161,29 @@
 		Quantity change
 	--------------------- */
     var proQty = $('.pro-qty');
+    var price = $('h3.price');
     proQty.prepend('<span class="fa fa-angle-up dec qtybtn"></span>');
     proQty.append('<span class="fa fa-angle-down inc qtybtn"></span>');
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
+        var oldValue = parseFloat($button.parent().find('input').val());
+        var unitPrice = parseFloat(price.text()); // Lấy giá từ phần tử h3.price
+    
         if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
+            var newVal = oldValue + 1;
         } else {
-            // Don't allow decrementing below zero
             if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
+                var newVal = oldValue - 1;
             } else {
                 newVal = 0;
             }
         }
+    
         $button.parent().find('input').val(newVal);
+    
+        // Tính toán giá mới dựa trên giá cơ bản và số lượng mới
+        var newPrice = unitPrice * newVal;
+       console.log(price.text(newPrice)); // Cập nhật giá mới vào phần tử h3.price
     });
 
     var proQty = $('.pro-qty-2');

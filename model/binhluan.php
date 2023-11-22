@@ -5,10 +5,9 @@
     return $listbl;
  }
  
- function insert_binhluan($noidung, $id_tk, $id_sp, $ngaybinhluan, $name_tk,$role)
+ function insert_binhluan($noidung, $id_tk, $id_sp, $ngaybinhluan, $name_tk)
 {
-  $sql = "insert into sanpham(noidung,id_tk,id_sp,ngaybinhluan,name_tk,role) value('$noidung','$id_tk','$id_sp','$ngaybinhluan','$name_tk,','$role')";
+  $sql = "INSERT INTO binhluan (noidung,id_tk,id_sp,ngaybinhluan,name_tk) VALUES ('$noidung', '$id_tk', '$id_sp', '$ngaybinhluan', '$name_tk')";
   pdo_execute($sql);
 }
-
 ?>

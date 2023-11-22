@@ -44,7 +44,7 @@ echo '
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3>' . $price_sp . ' VND<span>70.00</span></h3>
+                            <h3 class="price">' . $price_sp . ' VND<span>70.00</span></h3>
                             <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
                                 cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
                             with placket.</p>
@@ -190,7 +190,7 @@ echo '
                                 </div>
                                 <div class="tab-pane" id="tabs-7" role="tabpanel">
                                     <div class="product__details__tab__content ">
-                                    <iframe src="view/binhluan.php?id_sp=" . $id_sp style="height:300px;width:100%;" title="description"></iframe
+                                    <iframe src="view/binhluan.php?id_sp='.$id_sp.'" style="height:300px;width:100%;" title="description"></iframe>
                                     </div>
                                 </div>
                             </div>

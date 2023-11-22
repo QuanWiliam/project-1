@@ -85,28 +85,30 @@
                                 if(isset($_SESSION['user'])){
                                     echo' <a href="#">'.$_SESSION['user']['name_tk'].'</a>';
                                 }else{
-                                    echo '<a href="../../project-1/signin_up/dangnhap.php">Đăng nhập</a>';
+                                    echo '<a href="index.php?act=dangnhap">Đăng nhập</a>';
                                 }
                                 ?>
-                                
                                 <a href="#">Câu hỏi thường gặp</a>
                             </div>
                             <div class="header__top__hover">
-                                <span>Action <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li class="d-flex p-2">
-                                        <a href="?logout=true">Đăng xuất</a>
-                                    </li>
-                                    <?php
-                                    if($_SESSION['user']['role'] == 1){
+                            <?php
+                                if (isset($_SESSION['user'])) {
+                                    echo '
+                                    <span>Action <i class="arrow_carrot-down"></i></span>
+                                    <ul>
+                                        <li class="d-flex p-2">
+                                            <a href="index.php?act=dangxuat">Đăng xuất</a>
+                                        </li>';
+                                    if ($_SESSION['user']['role'] == 1) {
                                         echo '
                                         <li class="d-flex p-2">
-                                        <a href="../../project-1/admin/html/index.php">Admin</a>
-                                    </li>
-                                        ';
+                                            <a href="../../project-1/admin/html/index.php">Admin</a>
+                                        </li>';
                                     }
-                                    ?>
-                                </ul>
+                                    echo'
+                                    </ul>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

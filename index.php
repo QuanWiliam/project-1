@@ -1,9 +1,10 @@
 <?php
+session_start();
+
 include "model/pdo.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
-include "../project-1/signin_up/index.php";
 include "view/header.php";
 include "global.php";
 
@@ -59,6 +60,66 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/chitietsanpham.php";
             break;
         
+        case 'dangnhap':
+            if (isset($_POST['signin'])) {
+                $thongbao = "";
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                if ($username == "" || $password == "") {
+                    $thongbao = "Hãy nhập đầy đủ thông tin!";
+                } else {
+                    $checkuser = check_taikhoan($username, $password);
+                    if (is_array($checkuser)) {
+                        $_SESSION['user'] = $checkuser;
+                        // đây là câu lệnh để 
+                        $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
+                        if (isset($_SESSION['return_to']) && !empty($_SESSION['return_to'])) {
+                            $return_to = $_SESSION['return_to'];
+                            unset($_SESSION['return_to']); // Xóa thông tin trang trước đó để tránh chuyển hướng lặp lại
+                            header('Location: ' . $return_to);
+                            exit;
+                        }
+                        header('Location: index.php');
+                        exit();
+                    } else {
+                        $thongbao = "Bạn nhập sai thông tin";
+                    }
+                }
+            }
+        include 'view/dangnhap.php';
+        break;
+
+        case 'dangki':
+            if (isset($_POST['signup'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $re_password = $_POST['re_password'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $tel = $_POST['tel'];
+                if ($username == "" || $password == "" || $re_password == "" || $address == '' || $tel == '') {
+                    $thongbao = "Hãy nhập đầy đủ thông tin!";
+                } else {
+                    $adduser = insert_taikhoan($username, $password, $email, $address, $tel);
+                    if (isset($adduser)) {
+                        $_SESSION['user'] = $adduser;
+                        header('Location: index.php');
+                        exit();
+                    }
+                }
+            }
+            include 'view/dangki.php';
+            break;
+
+        case "dangxuat" :
+                // Xóa toàn bộ dữ liệu trong session
+                session_unset();
+                // Hủy phiên làm việc
+                session_destroy();
+                header("Location:index.php");
+                exit();
+            break;
+
         case 'giohang':
             include "view/giohang.php";
             break;

@@ -15,8 +15,11 @@
                         </thead>
                         <tbody>
                             <?php
+                            $tong = 0;
                             foreach ($_SESSION['mycart'] as $cart) {
                                 $hinh = $cart[2];
+                                $thanhtien = $cart[3] * $cart[4];
+                                $tong += $thanhtien;
                                 echo '<tr>
                                 <td class="product__cart__item">
                                     <div class="product__cart__item__pic">
@@ -34,7 +37,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">' . $cart[5] . '</td>
+                                <td class="cart__price">' . $thanhtien . '</td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>';
                             }

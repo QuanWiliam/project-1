@@ -2,6 +2,8 @@
 include "model/pdo.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
+include "model/taikhoan.php";
+include "../project-1/signin_up/index.php";
 include "view/header.php";
 include "global.php";
 
@@ -63,13 +65,18 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $dmsp = load_all_dm();
                 $sphome = load_sp_home();
                 $sphomeShop = load_sp_home_shop();
-
                 $loadone = load_one_sanpham($id);
+                $sanphamcungloai = load_sanpham_cungloai($id, $loadone['id_danhmuc']);
+
                 $sphomeNew = load_sp_home_new_arr();
                 $sphomeHot = load_sp_home_hot();
             }
             include "view/chitietsanpham.php";
+            break;
 
+        case 'giohang':
+            include "view/giohang.php";
+            break;
     }
 } else {
     include "view/home.php";

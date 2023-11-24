@@ -7,7 +7,7 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+    <title>Male-Fashion</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
@@ -35,7 +35,14 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Đăng nhập</a>
+                <?php
+                if (isset($_SESSION['user'])) {
+
+                    echo ' <a href="#">' . $_SESSION['user']['username'] . '</a>';
+                } else {
+                    echo '<a href="../../project-1/signin_up/">Đăng nhập</a>';
+                }
+                ?>
                 <a href="#">Câu hỏi thường gặp</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -73,15 +80,31 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Đăng nhập</a>
+                                <?php
+                                if (isset($_SESSION['user'])) {
+                                    echo ' <a href="#">' . $_SESSION['user']['name_tk'] . '</a>';
+                                } else {
+                                    echo '<a href="../../project-1/signin_up/dangnhap.php">Đăng nhập</a>';
+                                }
+                                ?>
+
                                 <a href="#">Câu hỏi thường gặp</a>
                             </div>
                             <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                                <span>Action <i class="arrow_carrot-down"></i></span>
                                 <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
+                                    <li class="d-flex p-2">
+                                        <a href="?logout=true">Đăng xuất</a>
+                                    </li>
+                                    <?php
+                                    if ($_SESSION['user']['role'] == 1) {
+                                        echo '
+                                        <li class="d-flex p-2">
+                                        <a href="../../project-1/admin/html/index.php">Admin</a>
+                                    </li>
+                                        ';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>

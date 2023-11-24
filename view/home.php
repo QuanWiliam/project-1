@@ -6,11 +6,10 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
-                            <h2>Fall - Winter Collections 2030</h2>
-                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                                commitment to exceptional quality.</p>
-                            <a href="index.php?act=shop" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <h6>Bộ sưu tập mùa hè</h6>
+                            <h2>Nam Thanh Lịch Trẻ Trung: Bộ Sưu Tập Thời Trang Xuân Hè</h2>
+                            <p> Bộ sưu tập Xuân Hè luôn đem lại sự tươi mới và sôi động của mùa xuân cùng với sự nhẹ nhàng, thoải mái của mùa hè. Những bộ trang phục trong bộ sưu tập này thường mang đậm bản sắc tự nhiên, sắc màu tươi sáng</p>
+                            <a href="index.php?act=shop" class="primary-btn">Mua ngay <span class="arrow_right"></span></a>
                             <div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -27,11 +26,10 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
-                            <h2>Fall - Winter Collections 2030</h2>
-                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                                commitment to exceptional quality.</p>
-                            <a href="index.php?act=shop" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <h6>Bộ sưu tập mùa hè</h6>
+                            <h2>Nam Thanh Lịch Trẻ Trung: Bộ Sưu Tập Thời Trang Xuân Hè</h2>
+                            <p> Bộ sưu tập Xuân Hè luôn đem lại sự tươi mới và sôi động của mùa xuân cùng với sự nhẹ nhàng, thoải mái của mùa hè. Những bộ trang phục trong bộ sưu tập này thường mang đậm bản sắc tự nhiên, sắc màu tươi sáng</p>
+                            <a href="index.php?act=shop" class="primary-btn">Mua ngay <span class="arrow_right"></span></a>
                             <div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -54,33 +52,33 @@
             <div class="col-lg-7 offset-lg-4">
                 <div class="banner__item">
                     <div class="banner__item__pic">
-                        <img src="img/banner/banner-1.jpg" alt="">
+                        <img width="400" src="../../project-1/upload/ni1.jpeg" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Clothing Collections 2030</h2>
-                        <a href="index.php?act=shop">Shop now</a>
+                        <h2>Bộ sưu tập áo Nỉ 2030</h2>
+                        <a href="index.php?act=shop">Mua ngay</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="banner__item banner__item--middle">
                     <div class="banner__item__pic">
-                        <img src="img/banner/banner-2.jpg" alt="">
+                        <img width="400" src="../../project-1/upload/polo2.jpeg" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Accessories</h2>
-                        <a href="#">Shop now</a>
+                        <h2>Các dòng áo polo</h2>
+                        <a href="#">Mua ngay</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="banner__item banner__item--last">
                     <div class="banner__item__pic">
-                        <img src="img/banner/banner-3.jpg" alt="">
+                        <img width="400" src="../../project-1/upload/khoac2.jpeg" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Shoes Spring 2030</h2>
-                        <a href="#">Shop now</a>
+                        <h2>Bộ sưu tập áo khoác</h2>
+                        <a href="#">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -475,7 +473,7 @@
                             <p>Seconds</p>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">Shop now</a>
+                    <a href="#" class="primary-btn">Mua ngay</a>
                 </div>
             </div>
         </div>
@@ -500,8 +498,8 @@
             <div class="col-lg-4">
                 <div class="instagram__text">
                     <h2>Instagram</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <p>Đừng ngần ngại ghé thăm trang Instagram của chúng tôi để tham gia vào cộng đồng thời trang đầy màu sắc. Bạn sẽ có cơ hội thấy những bức ảnh nổi bật về sản phẩm, cùng với những chia sẻ về phong cách, cách kết hợp trang phục độc đáo và một vài bí quyết thời trang từ đội ngũ chuyên gia của chúng tôi.
+                       Hãy để chúng tôi biến trang cá nhân của bạn thành một không gian thăng hoa với phong cách và sự tự tin. Liên hệ với chúng tôi ngay trên Instagram để trải nghiệm sự độc đáo và phong phú trong thế giới thời trang của chúng tôi. Chúng tôi sẵn sàng đồng hành và hỗ trợ bạn! 📸✨ #LiênHệ #Instagram #ThờiTrang"</p>
                     <h3>#Male_Fashion</h3>
                 </div>
             </div>

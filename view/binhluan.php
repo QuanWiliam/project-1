@@ -21,8 +21,23 @@ $html_bl = "";
 foreach ($bl as $val) {
     extract($val);
     $html_bl .= '
-            <h3>' . $noidung . '</h3><br>
-            <p>' . $name_tk . ' - ' . $ngaybinhluan . '</p>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+                    <div class="bg-white p-2">
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">'.$name_tk.'</span><span class="date text-black-50">Chia sẻ công khai - '.$ngaybinhluan.'</span></div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">'.$noidung.'</p>
+                        </div>
+                    </div><hr>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div> 
             ';
 }
 ?>
@@ -38,17 +53,20 @@ foreach ($bl as $val) {
 </head>
 
 <body>
-    <h1>bìnhluan</h1>
     <?php
     if (isset($_SESSION['user']) && (count($_SESSION['user'])) > 0) {
 
     ?>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post"> <!-- Thay đổi method thành "get" -->
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <input type="hidden" name="id_sp" value="<?= $id_sp ?>">
-            <div class="form-group shadow-textarea">
-                <textarea class="form-control z-depth-1" name="noidung"  rows="3" placeholder="Write something here..."></textarea>
+            <div class="bg-light p-2">
+                <div class="d-flex flex-row align-items-start">
+                    <textarea name="noidung" class="form-control ml-1 shadow-none textarea"></textarea>
+                </div>
+                <div class="mt-2 text-right">
+                    <button class="btn btn-primary btn-sm shadow-none" type="submit" name="guibinhluan">Bình luận</button>
+                </div>
             </div>
-            <button type="submit" name="guibinhluan">Gửi bình luận</button>
         </form>
     <?php
     } else {

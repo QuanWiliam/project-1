@@ -95,7 +95,7 @@ function count_pro()
 // LOAD SAN PHAM TU = LIMIT TU VI TRI START
 function load_limit_9_pro($start, $limit)
 {
-  $sql = "SELECT * FROM SANPHAM WHERE ID_SP LIMIT $start,$limit";
+  $sql = "SELECT * FROM SANPHAM ORDER BY ID_SP DESC LIMIT $start, $limit";
   $pro = pdo_query($sql);
   return $pro;
 }

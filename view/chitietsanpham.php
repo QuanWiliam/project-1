@@ -6,7 +6,7 @@ if (is_array($loadone)) {
 echo '
  <section class="shop-details">
         <div class="product__details__pic">
-            <div class="container">
+            <div class="container text-center">
                 <div >
                     <div class="col-lg-12">
                         <div class="product__details__breadcrumb">
@@ -17,19 +17,19 @@ echo '
                     </div>
                 </div>
                     
-                    <div class="col-lg-6 col-md-9">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <div class="product__details__pic__item ">
-                                    <img src="' . $img . '" alt="">
-                                </div>
+                <div class="col-lg-6 col-md-9 ">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="product__details__pic__item ">
+                                <img src="' . $img . '" alt="">
                             </div>
-                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="product__details__content">
             <div class="container">
                 <div class="row d-flex justify-content-center">
@@ -146,7 +146,7 @@ echo '
                                 </div>
                                 <div class="tab-pane" id="tabs-7" role="tabpanel">
                                     <div class="product__details__tab__content ">
-                                    <iframe class="border-0 overflow-hidden" src="view/binhluan.php?id_sp='.$id_sp.'" style="height:300px;width:100%;" title="description"></iframe>
+                                    <iframe class="border-0 position-relative" src="view/binhluan.php?id_sp='.$id_sp.'" style="height:450px;width:100%;" title="description"></iframe>
                                     </div>
                                 </div>
                             </div>

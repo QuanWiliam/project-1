@@ -1585,9 +1585,9 @@ ol {
 	display: inline-block;
 }
 
-.product__details__pic__item {
+/* .product__details__pic__item {
 	position: relative;
-}
+} */
 
 .product__details__pic__item a {
 	height: 56px;

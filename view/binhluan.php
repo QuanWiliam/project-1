@@ -15,8 +15,8 @@ if (isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])) {
     $id_sp = $_POST['id_sp'];
     insert_binhluan($noidung, $id_tk, $id_sp, $ngaybinhluan, $name_tk);
 }
-
-$bl = binhluan_all();
+$idpro = $_REQUEST['id_sp'];
+$bl = binhluan_all_id($idpro);
 $html_bl = "";
 foreach ($bl as $val) {
     extract($val);
@@ -59,7 +59,7 @@ foreach ($bl as $val) {
     ?>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <input type="hidden" name="id_sp" value="<?= $id_sp ?>">
-            <div class="bg-light p-2">
+            <div class="bg-light ">
                 <div class="d-flex flex-row align-items-start">
                     <textarea name="noidung" class="form-control ml-1 shadow-none textarea"></textarea>
                 </div>

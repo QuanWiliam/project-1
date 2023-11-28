@@ -1,11 +1,8 @@
 <?php
 session_start();
-include "../model/pdo.php";
+include '../model/pdo.php';
 include '../model/binhluan.php';
-$tho = "";
-if (isset($_GET['id_sp'])) {
-    $idpro = $_GET['id_sp'];
-}
+
 
 if (isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])) {
     $noidung = $_POST['noidung'];
@@ -64,7 +61,7 @@ foreach ($bl as $val) {
                     <textarea name="noidung" class="form-control ml-1 shadow-none textarea"></textarea>
                 </div>
                 <div class="mt-2 text-right">
-                    <button class="btn btn-primary btn-sm shadow-none" type="submit" name="guibinhluan">Bình luận</button>
+                    <input class="btn btn-primary btn-sm shadow-none" type="submit" name="guibinhluan" value="Bình luận">
                 </div>
             </div>
         </form>
@@ -78,7 +75,6 @@ foreach ($bl as $val) {
         <?= $html_bl ?>
     </div>
 
-    <h2><?= $tho ?></h2>
 </body>
 
 </html>

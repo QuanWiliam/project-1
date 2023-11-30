@@ -1,8 +1,9 @@
 <?php
 include "../../model/pdo.php";
-include "../../model//danhmuc.php";
-include "../../model//taikhoan.php";
-include "../../model//sanpham.php";
+include "../../model/danhmuc.php";
+include "../../model/taikhoan.php";
+include "../../model/sanpham.php";
+include "../../model/binhluan.php";
 include "../html/header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -251,6 +252,11 @@ if (isset($_GET['act'])) {
             $listtk = load_taikhoan();
             include "../html/taikhoan/list_taikhoan.php";
             break;
+
+            case "binhluan":
+                $listbl = binhluan_all();
+                include "../html/binhluan/list_binhluan.php";
+                break;
     }
 
 } else {

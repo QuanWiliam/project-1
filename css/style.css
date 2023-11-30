@@ -1585,9 +1585,9 @@ ol {
 	display: inline-block;
 }
 
-.product__details__pic__item {
+/* .product__details__pic__item {
 	position: relative;
-}
+} */
 
 .product__details__pic__item a {
 	height: 56px;
@@ -1600,7 +1600,7 @@ ol {
 	text-align: center;
 	display: inline-block;
 	position: absolute;
-	left: 50%;
+	left: 0%;
 	top: 50%;
 	margin-top: -28px;
 	margin-left: -28px;
@@ -2668,6 +2668,7 @@ ol {
 .checkout__order .site-btn {
 	width: 100%;
 	margin-top: 8px;
+	text-align: center;
 }
 
 .checkout__order__products {
@@ -3849,4 +3850,10 @@ ol {
 	.categories__text:before {
 		height: 250px;
 	}
+}
+
+.box-img img {
+	width: 200px;
+	float: right;
+	margin-right: 100px;
 }

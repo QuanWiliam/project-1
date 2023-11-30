@@ -9,10 +9,10 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="signin_up/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="signin_up/css/style2.css">
 </head>
 <body>
 
@@ -59,8 +59,8 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/pexels-w-r-1450114-removebg-preview.png" alt="sing up image"></figure>
-                        <a href="../signin_up/index.php?act=dangnhap" class="signup-image-link">I am already member</a>
+                        <figure><img src="signin_up/images/pexels-w-r-1450114-removebg-preview.png" alt="sing up image"></figure>
+                        <a href="index.php?act=dangnhap" class="signup-image-link">I am already member</a>
                     </div>
                 </div>
             </div>

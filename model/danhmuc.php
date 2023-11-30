@@ -9,7 +9,7 @@ function insert_danhmuc($tendm)
 function delete_danhmuc($id_danhmuc)
 {
   $sql = "delete from danhmuc where id_danhmuc=" . $id_danhmuc;
-  pdo_query($sql);
+  pdo_execute($sql);
 }
 //   hàm này để load tất cả loại sản phẩm
 function load_all_dm()

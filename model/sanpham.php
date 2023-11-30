@@ -7,7 +7,7 @@ function insert_sanpham($name, $img, $price, $mota, $id_danhmuc)
 function delete_sanpham($id)
 {
   $sql = "delete from sanpham where id_sp=" . $id;
-  pdo_query($sql);
+  pdo_execute($sql);
 }
 function load_sp($kyw, $id_danhmuc)
 {
@@ -55,10 +55,11 @@ function load_one_sanpham($id)
   $list_one = pdo_query_one($sql);
   return $list_one;
 }
-function load_sanpham_cungloai($id, $id_danhmuc){
-    $sql = "select * from sanpham where id_danhmuc=".$id_danhmuc." and id_sp <>".$id;
-    $listcungloai = pdo_query($sql);
-    return $listcungloai;
+function load_sanpham_cungloai($id, $id_danhmuc)
+{
+  $sql = "select * from sanpham where id_danhmuc=" . $id_danhmuc . " and id_sp <>" . $id;
+  $listcungloai = pdo_query($sql);
+  return $listcungloai;
 }
 function update_sanpham($id, $name, $img, $price, $mota, $id_danhmuc)
 {
@@ -95,7 +96,7 @@ function count_pro()
 // LOAD SAN PHAM TU = LIMIT TU VI TRI START
 function load_limit_9_pro($start, $limit)
 {
-  $sql = "SELECT * FROM SANPHAM WHERE ID_SP LIMIT $start,$limit";
+  $sql = "SELECT * FROM SANPHAM ORDER BY ID_SP DESC LIMIT $start, $limit";
   $pro = pdo_query($sql);
   return $pro;
 }

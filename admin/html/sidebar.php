@@ -45,7 +45,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="tables.html"
+                  href="../html/index.php?act=binhluan"
                   aria-expanded="false"
                   ><i class="mdi mdi-border-inside"></i
                   ><span class="hide-menu">Bình luận</span></a

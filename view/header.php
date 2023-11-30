@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Male-Fashion</title>
+    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
@@ -84,28 +85,30 @@
                                 if (isset($_SESSION['user'])) {
                                     echo ' <a href="#">' . $_SESSION['user']['name_tk'] . '</a>';
                                 } else {
-                                    echo '<a href="../../project-1/signin_up/dangnhap.php">Đăng nhập</a>';
+                                    echo '<a href="index.php?act=dangnhap">Đăng nhập</a>';
                                 }
                                 ?>
-
                                 <a href="#">Câu hỏi thường gặp</a>
                             </div>
                             <div class="header__top__hover">
-                                <span>Action <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li class="d-flex p-2">
-                                        <a href="?logout=true">Đăng xuất</a>
-                                    </li>
-                                    <?php
+                                <?php
+                                if (isset($_SESSION['user'])) {
+                                    echo '
+                                    <span>Action <i class="arrow_carrot-down"></i></span>
+                                    <ul>
+                                        <li class="d-flex p-2">
+                                            <a href="index.php?act=dangxuat">Đăng xuất</a>
+                                        </li>';
                                     if ($_SESSION['user']['role'] == 1) {
                                         echo '
                                         <li class="d-flex p-2">
-                                        <a href="../../project-1/admin/html/index.php">Admin</a>
-                                    </li>
-                                        ';
+                                            <a href="../../project-1/admin/html/index.php">Admin</a>
+                                        </li>';
                                     }
-                                    ?>
-                                </ul>
+                                    echo '
+                                    </ul>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -122,20 +125,17 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="index.php?act=shop">Shop</a></li>
+                            <li class="active"><a href="./index.php">Trang chủ</a></li>
+                            <li><a href="index.php?act=shop">Sản phẩm</a></li>
 
-                            <li><a href="#">Pages</a>
+                            <li><a href="#">Các trang</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./about.html">Về chúng tôi</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
                             <li><a href="index.php?act=blog">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li><a href="./contact.html">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -143,7 +143,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="index.php?act=cart.php"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="index.php?act=listcart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
                         <div class="price">$0.00</div>
                     </div>
                 </div>

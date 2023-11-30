@@ -6,16 +6,16 @@ if (is_array($loadone)) {
 echo '
  <section class="shop-details">
         <div class="product__details__pic">
-            <div class="container text-center">
-                <div >
-                    <div class="col-lg-12">
-                        <div class="product__details__breadcrumb">
-                            <a href="./index.php">Home</a>
-                            <a href="./shop.html">Shop</a>
-                            <span>Product Details</span>
-                        </div>
-                    </div>
+        <div >
+            <div class="col-lg-12">
+                <div class="product__details__breadcrumb">
+                    <a href="./index.php">Home</a>
+                    <a href="./shop.html">Shop</a>
+                    <span>Product Details</span>
                 </div>
+            </div>
+        </div>
+            <div class="container d-flex justify-content-center">
                     
                 <div class="col-lg-6 col-md-9 ">
                     <div class="tab-content">

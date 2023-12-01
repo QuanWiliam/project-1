@@ -16,10 +16,43 @@ $sphomeHot = load_sp_home_hot();
 
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
+    
     switch ($act) {
         case 'blog':
             include "view/blog.php";
             break;
+        case 'lienhe':
+            include "view/lienhe.php";
+            break;
+            // đây là phần tìm kiếm
+        case "timkiemsp":
+            $kyw = '';
+            if (isset($_POST['timkiem']) && ($_POST['timkiem'])) {
+                if ($_POST['kyw'] == "") {
+                    $kyw = '';
+                    //  sử dụng hàm header() để thực hiện chuyển hướng, nhưng đặt Location trực tiếp trong thẻ meta của HTML để tránh lỗi headers already sent
+                    echo '<meta http-equiv="refresh" content="0;url=index.php?act=shop">';
+                } else {
+                    $kyw = $_POST['kyw'];
+                }
+            }
+
+            $listsp = load_sp_timkiem($kyw);
+            // Đặt $listdm làm biến để truy vấn đến hàm load danh muc
+            // $limit = 9;
+            // if (isset($_POST['number'])) {
+            //     $number = $_POST['number'];
+            //     $start = ($number - 1) * $limit;
+            // } else {
+            //     $start = 0;
+            // }
+            // $sphomeShop = load_limit_9_pro($start, $limit);
+            // $count = count_pro();
+            $dmsp = load_all_dm();
+            include "view/timkiem.php";
+            break;
+
+            // đây là phần tìm kiếm theo phần sidebar
         case 'sanpham':
             if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc'])) {
                 $id_danhmuc = $_GET['id_danhmuc'];
@@ -54,6 +87,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             $sphome = load_sp_home_shop();
             include "view/shop.php";
             break;
+
         case 'chitiet':
             if (isset($_GET['id_sp']) && ($_GET['id_sp']) > 0) {
                 $id = $_GET['id_sp'];
@@ -68,27 +102,30 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             include "view/chitietsanpham.php";
             break;
-        
+
         case 'dangnhap':
+
             if (isset($_POST['signin'])) {
                 $thongbao = "";
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+            
                 if ($username == "" || $password == "") {
                     $thongbao = "Hãy nhập đầy đủ thông tin!";
                 } else {
+                    // Đảm bảo hàm check_taikhoan() được định nghĩa và trả về dữ liệu một cách chính xác
                     $checkuser = check_taikhoan($username, $password);
+            
                     if (is_array($checkuser)) {
                         $_SESSION['user'] = $checkuser;
-                        // đây là câu lệnh để 
-                        $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
-                        if (isset($_SESSION['return_to']) && !empty($_SESSION['return_to'])) {
-                            $return_to = $_SESSION['return_to'];
-                            unset($_SESSION['return_to']); // Xóa thông tin trang trước đó để tránh chuyển hướng lặp lại
-                            header('Location: ' . $return_to);
-                            exit;
+            
+                        // Đặt session 'return_to' chỉ khi không có giá trị trước đó
+                        if (!isset($_SESSION['return_to'])) {
+                            $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
                         }
-                        header('Location: index.php');
+            
+                        // Sử dụng chỉ chuyển hướng bằng header
+                        header('Location: ' . $_SESSION['return_to']);
                         exit();
                     } else {
                         $thongbao = "Bạn nhập sai thông tin";
@@ -96,10 +133,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 }
             }
         include 'view/dangnhap.php';
+
         break;
 
         case 'dangki':
+ 
             if (isset($_POST['signup'])) {
+                $thongbao = "";
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $re_password = $_POST['re_password'];
@@ -112,12 +152,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $adduser = insert_taikhoan($username, $password, $email, $address, $tel);
                     if (isset($adduser)) {
                         $_SESSION['user'] = $adduser;
-                        header('Location: index.php');
+                        header('Location:index.php');
                         exit();
                     }
                 }
             }
             include 'view/dangki.php';
+
             break;
 
         case "dangxuat" :
@@ -125,7 +166,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 session_unset();
                 // Hủy phiên làm việc
                 session_destroy();
-                header("Location:index.php");
+                echo '<meta http-equiv="refresh" content="0;url=index.php">';
                 exit();
             break;
 
@@ -136,5 +177,5 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 } else {
     include "view/home.php";
 }
-include "view/footer.php";
+  include "view/footer.php";
 ?>

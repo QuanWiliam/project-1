@@ -45,11 +45,11 @@
                 </div>
                 <div class="row">
                     <?php
-                    foreach ($sphomeShop as $sp) {
+                    foreach ($listsp as $sp) {
                         extract($sp);
                         $img = $img_path . $img_sp;
                         echo '
-                                <div class="col-lg-4 col-md-6 col-sm-6 choanh">
+                                <div class="col-lg-4 col-md-6 col-sm-6 ">
                                     <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="' . $img . '">
                                             <ul class="product__hover">
@@ -88,28 +88,6 @@
                     }
 
                     ?>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="product__pagination">
-                            <!-- <form action=""></form> chèn code này vào để tránh lỗi không nhận form  -->
-                            <form action=""></form> 
-                            <form action="index.php?act=shop" method="post">
-                                <?php
-                                for ($i = 0; $i < $count; $i++) {
-                                    ?>
-                                    <input type="submit" name="number" value="<?= $i + 1 ?>">
-                                    <?php
-                                }
-                                ?>
-                            </form>
-                            <!-- <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">21</a> -->
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

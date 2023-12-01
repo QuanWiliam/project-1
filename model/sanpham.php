@@ -22,6 +22,17 @@ function load_sp($kyw, $id_danhmuc)
   $listsp = pdo_query($sql);
   return $listsp;
 }
+// tìm kiếm ở shop
+function load_sp_timkiem($kyw)
+{
+  $sql = "select * from sanpham where 1 ";
+  if ($kyw != "") {
+    $sql .= " and name_sp like '%" . $kyw . "%'";
+  }
+  $sql .= " order by id_sp desc";
+  $listsp = pdo_query($sql);
+  return $listsp;
+}
 // đây là load sap ở shop
 function load_sp_home_shop()
 {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -9,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Male-Fashion</title>
+    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
@@ -27,23 +27,23 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-            <?php
-                if(isset($_SESSION['user'])){
-                    
-                    echo' <a href="#">'.$_SESSION['user']['username'].'</a>';
-                }else{
+                <?php
+                if (isset($_SESSION['user'])) {
+
+                    echo ' <a href="#">' . $_SESSION['user']['username'] . '</a>';
+                } else {
                     echo '<a href="../../project-1/signin_up/">Đăng nhập</a>';
                 }
-            ?>
+                ?>
                 <a href="#">Câu hỏi thường gặp</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -58,7 +58,7 @@
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
             <a href="#"><img src="img/icon/heart.png" alt=""></a>
-            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="index.php?act=cart.php"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
             <div class="price">$0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
@@ -82,16 +82,16 @@
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 <?php
-                                if(isset($_SESSION['user'])){
-                                    echo' <a href="#">'.$_SESSION['user']['name_tk'].'</a>';
-                                }else{
+                                if (isset($_SESSION['user'])) {
+                                    echo ' <a href="#">' . $_SESSION['user']['name_tk'] . '</a>';
+                                } else {
                                     echo '<a href="index.php?act=dangnhap">Đăng nhập</a>';
                                 }
                                 ?>
                                 <a href="#">Câu hỏi thường gặp</a>
                             </div>
                             <div class="header__top__hover">
-                            <?php
+                                <?php
                                 if (isset($_SESSION['user'])) {
                                     echo '
                                     <span>Action <i class="arrow_carrot-down"></i></span>
@@ -105,7 +105,7 @@
                                             <a href="../../project-1/admin/html/index.php">Admin</a>
                                         </li>';
                                     }
-                                    echo'
+                                    echo '
                                     </ul>';
                                 }
                                 ?>
@@ -143,7 +143,8 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="index.php?act=giohang"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="index.php?act=listcart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        <div class="price">$0.00</div>
                     </div>
                 </div>
             </div>
@@ -151,4 +152,3 @@
         </div>
     </header>
     <!-- Header Section End -->
-

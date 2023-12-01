@@ -1,4 +1,7 @@
+<?php
+$thongbao = "";
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +9,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+    <title>Sign Up Form by Colorlib</title>
 
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
-    <link rel="stylesheet" href="signin_up/fonts/material-icon/css/material-design-iconic-font.min.css">
-
-
-    <link rel="stylesheet" href="signin_up/css/style2.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -25,15 +28,14 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-
-                        <figure><img src="signin_up/images/pexels-uncoveredlens-eze-joshua-3620411-removebg-preview.png"
+                        <figure><img src="images/pexels-uncoveredlens-eze-joshua-3620411-removebg-preview.png"
                                 alt="sing up image"></figure>
-
-                        <a href="index.php?act=dangki" class="signup-image-link">Create an account</a>
+                        <a href="../signin_up/index.php?act=dangki" class="signup-image-link">Create an account</a>
                     </div>
+
                     <div class="signin-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form action="index.php?act=dangnhap" method="POST" class="register-form" id="login-form">
+                        <form action="" method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="your_name" placeholder="Your Name" />

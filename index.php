@@ -1,13 +1,12 @@
 <?php
 session_start();
-
 include "model/pdo.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
+include "model/giohang.php";
 include "view/header.php";
 include "global.php";
-
 
 $sphome = load_sp_home();
 $sphomeNew = load_sp_home_new_arr();
@@ -58,7 +57,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $id_danhmuc = $_GET['id_danhmuc'];
                 $dssp = load_sp("", $id_danhmuc);
                 $tendm = load_ten_dm($id_danhmuc);
-                
+
             }
             $limit = 9;
             if (isset($_POST['number'])) {
@@ -72,7 +71,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             $dmsp = load_all_dm();
             include "view/sanpham.php";
             break;
-
         case 'shop':
             $limit = 9;
             if (isset($_POST['number'])) {
@@ -88,19 +86,19 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/shop.php";
             break;
 
-        case 'chitiet':
+        case 'shopdetail':
+
             if (isset($_GET['id_sp']) && ($_GET['id_sp']) > 0) {
                 $id = $_GET['id_sp'];
                 $dmsp = load_all_dm();
                 $sphome = load_sp_home();
                 $sphomeShop = load_sp_home_shop();
                 $loadone = load_one_sanpham($id);
-                $sanphamcungloai = load_sanpham_cungloai($id ,$loadone['id_danhmuc'] );
-
+                $sanphamcungloai = load_sanpham_cungloai($id, $loadone['id_danhmuc']);
                 $sphomeNew = load_sp_home_new_arr();
                 $sphomeHot = load_sp_home_hot();
             }
-            include "view/chitietsanpham.php";
+            include "view/shop-detail.php";
             break;
 
         case 'dangnhap':
@@ -123,18 +121,22 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         if (!isset($_SESSION['return_to'])) {
                             $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
                         }
+
             
                         // Sử dụng chỉ chuyển hướng bằng header
                         header('Location: ' . $_SESSION['return_to']);
+
                         exit();
                     } else {
                         $thongbao = "Bạn nhập sai thông tin";
                     }
                 }
             }
+
         include 'view/dangnhap.php';
 
         break;
+
 
         case 'dangki':
  
@@ -152,7 +154,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $adduser = insert_taikhoan($username, $password, $email, $address, $tel);
                     if (isset($adduser)) {
                         $_SESSION['user'] = $adduser;
-                        header('Location:index.php');
+
+                        header('Location: ../index.php');
+
                         exit();
                     }
                 }
@@ -161,6 +165,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
             break;
 
+
         case "dangxuat" :
                 // Xóa toàn bộ dữ liệu trong session
                 session_unset();
@@ -168,10 +173,48 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 session_destroy();
                 echo '<meta http-equiv="refresh" content="0;url=index.php">';
                 exit();
+
+        case "addtocart":
+            if (isset($_GET['id']) && $_GET['id']) {
+                $amount = isset($_GET['amount']) ? $_GET['amount'] : 1;
+                $id = $_GET['id'];
+                $sp = load_one_sanpham($id);
+                extract($sp);
+                $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+                extract($tk);
+                if (empty(ton_tai($id_sp))) {
+                    addtocart($id_giohang, $id_sp, $price_sp, $amount);
+                }
+                $carts = load_cart_tk($id_tk);
+                include "view/cart.php";
+            }
+            break;
+        case 'listcart':
+            $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+            extract($tk);
+            $carts = load_cart_tk($id_tk);
+            include "view/cart.php";
+            break;
+        case 'delcart':
+            if (isset($_GET['idcart'])) {
+                $id = $_GET['idcart'];
+                $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+                extract($tk);
+                delete_giohang($id);
+            }
+            $carts = load_cart_tk($id_tk);
+            include "view/cart.php";
+
             break;
 
-        case 'giohang':
-            include "view/giohang.php";
+        case 'checkout':
+            $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+            extract($tk);
+            $hoadon = load_hoadon($id_giohang);
+            include "view/checkout.php";
+            break;
+        case 'thanhtoan':
+            include "view/thanhtoan.php";
             break;
     }
 } else {

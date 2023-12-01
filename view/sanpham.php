@@ -56,7 +56,7 @@
                                                 <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
                                                 <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
                                                 </li>
-                                                <li><a name="chitiet" href="index.php?act=chitiet&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
+                                                <li><a name="chitiet" href="index.php?act=shopdetail&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__item__text">

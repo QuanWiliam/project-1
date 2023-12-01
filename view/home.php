@@ -8,8 +8,11 @@
                         <div class="hero__text">
                             <h6>Bộ sưu tập mùa hè</h6>
                             <h2>Nam Thanh Lịch Trẻ Trung: Bộ Sưu Tập Thời Trang Xuân Hè</h2>
-                            <p> Bộ sưu tập Xuân Hè luôn đem lại sự tươi mới và sôi động của mùa xuân cùng với sự nhẹ nhàng, thoải mái của mùa hè. Những bộ trang phục trong bộ sưu tập này thường mang đậm bản sắc tự nhiên, sắc màu tươi sáng</p>
-                            <a href="index.php?act=shop" class="primary-btn">Mua ngay <span class="arrow_right"></span></a>
+                            <p> Bộ sưu tập Xuân Hè luôn đem lại sự tươi mới và sôi động của mùa xuân cùng với sự nhẹ
+                                nhàng, thoải mái của mùa hè. Những bộ trang phục trong bộ sưu tập này thường mang đậm
+                                bản sắc tự nhiên, sắc màu tươi sáng</p>
+                            <a href="index.php?act=shop" class="primary-btn">Mua ngay <span
+                                    class="arrow_right"></span></a>
                             <div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -28,8 +31,11 @@
                         <div class="hero__text">
                             <h6>Bộ sưu tập mùa hè</h6>
                             <h2>Nam Thanh Lịch Trẻ Trung: Bộ Sưu Tập Thời Trang Xuân Hè</h2>
-                            <p> Bộ sưu tập Xuân Hè luôn đem lại sự tươi mới và sôi động của mùa xuân cùng với sự nhẹ nhàng, thoải mái của mùa hè. Những bộ trang phục trong bộ sưu tập này thường mang đậm bản sắc tự nhiên, sắc màu tươi sáng</p>
-                            <a href="index.php?act=shop" class="primary-btn">Mua ngay <span class="arrow_right"></span></a>
+                            <p> Bộ sưu tập Xuân Hè luôn đem lại sự tươi mới và sôi động của mùa xuân cùng với sự nhẹ
+                                nhàng, thoải mái của mùa hè. Những bộ trang phục trong bộ sưu tập này thường mang đậm
+                                bản sắc tự nhiên, sắc màu tươi sáng</p>
+                            <a href="index.php?act=shop" class="primary-btn">Mua ngay <span
+                                    class="arrow_right"></span></a>
                             <div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -105,6 +111,7 @@
             <!-- đây là sản phẩm mới -->
             <?php
             foreach ($sphomeNew as $sp) {
+                // var_dump($sp);
                 extract($sp);
                 $img = $img_path . $img_sp;
                 echo '
@@ -115,12 +122,14 @@
                                 <ul class="product__hover">
                                     <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
                                     <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                    <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                                    <li><a name="chitiet" href="index.php?act=shopdetail&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
                                 <h6>' . $name_sp . '</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
+                                <div>
+                                <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
+                            </div>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
@@ -157,12 +166,12 @@
                         <ul class="product__hover">
                             <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
                             <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
+                            <li><a name="chitiet" href="index.php?act=shopdetail&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
                         <h6>' . $name_sp . '</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
                         <div class="rating">
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
@@ -433,6 +442,17 @@
 </section>
 <!-- Product Section End -->
 
+<!-- from add-cart -->
+<!-- <div>
+                                <form action="index.php?act=addtocart" method="post">
+                                    <input type="hidden" name="id" value="' . $id . '">
+                                    <input type="hidden" name="name_sp" value="' . $name_sp . '">
+                                    <input type="hidden" name="img" value="' . $img . '">
+                                    <input type="hidden" name="price_sp" value="' . $price_sp . '">
+                                    <input type="submit" name="addtocart" value="+ Add To Cart">
+                                </form>
+                            </div> -->
+
 <!-- Categories Section Begin -->
 <section class="categories spad">
     <div class="container">
@@ -498,8 +518,14 @@
             <div class="col-lg-4">
                 <div class="instagram__text">
                     <h2>Instagram</h2>
-                    <p>Đừng ngần ngại ghé thăm trang Instagram của chúng tôi để tham gia vào cộng đồng thời trang đầy màu sắc. Bạn sẽ có cơ hội thấy những bức ảnh nổi bật về sản phẩm, cùng với những chia sẻ về phong cách, cách kết hợp trang phục độc đáo và một vài bí quyết thời trang từ đội ngũ chuyên gia của chúng tôi.
-                       Hãy để chúng tôi biến trang cá nhân của bạn thành một không gian thăng hoa với phong cách và sự tự tin. Liên hệ với chúng tôi ngay trên Instagram để trải nghiệm sự độc đáo và phong phú trong thế giới thời trang của chúng tôi. Chúng tôi sẵn sàng đồng hành và hỗ trợ bạn! 📸✨ #LiênHệ #Instagram #ThờiTrang"</p>
+                    <p>Đừng ngần ngại ghé thăm trang Instagram của chúng tôi để tham gia vào cộng đồng thời trang đầy
+                        màu sắc. Bạn sẽ có cơ hội thấy những bức ảnh nổi bật về sản phẩm, cùng với những chia sẻ về
+                        phong cách, cách kết hợp trang phục độc đáo và một vài bí quyết thời trang từ đội ngũ chuyên gia
+                        của chúng tôi.
+                        Hãy để chúng tôi biến trang cá nhân của bạn thành một không gian thăng hoa với phong cách và sự
+                        tự tin. Liên hệ với chúng tôi ngay trên Instagram để trải nghiệm sự độc đáo và phong phú trong
+                        thế giới thời trang của chúng tôi. Chúng tôi sẵn sàng đồng hành và hỗ trợ bạn! 📸✨ #LiênHệ
+                        #Instagram #ThờiTrang"</p>
                     <h3>#Male_Fashion</h3>
                 </div>
             </div>

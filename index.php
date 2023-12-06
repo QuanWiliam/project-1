@@ -5,7 +5,13 @@ include "model/sanpham.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
 include "model/giohang.php";
-include "view/header.php";
+
+// để tránh include "view/header.php"; vào trang đăng nhập và đăng kí
+if(isset($_GET['act']) && $_GET['act'] != "dangnhap" && $_GET['act'] != "dangki") {
+    include "view/header.php";
+} elseif (!isset($_GET['act'])) {
+    include "view/header.php";
+}
 include "global.php";
 
 $sphome = load_sp_home();
@@ -86,19 +92,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/shop.php";
             break;
 
-        case 'shopdetail':
+        case 'chitietsanpham':
 
             if (isset($_GET['id_sp']) && ($_GET['id_sp']) > 0) {
                 $id = $_GET['id_sp'];
-                $dmsp = load_all_dm();
                 $sphome = load_sp_home();
-                $sphomeShop = load_sp_home_shop();
                 $loadone = load_one_sanpham($id);
                 $sanphamcungloai = load_sanpham_cungloai($id, $loadone['id_danhmuc']);
-                $sphomeNew = load_sp_home_new_arr();
-                $sphomeHot = load_sp_home_hot();
             }
-            include "view/shop-detail.php";
+            include "view/chitietsanpham.php";
             break;
 
         case 'dangnhap':
@@ -189,12 +191,21 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 include "view/cart.php";
             }
             break;
-        case 'listcart':
-            $tk = load_giohang_tk($_SESSION['user']['id_tk']);
-            extract($tk);
-            $carts = load_cart_tk($id_tk);
-            include "view/cart.php";
-            break;
+            case 'listcart':
+                if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
+                    echo '
+                    <div class=" container h-75">
+                      <h1>Hãy đăng nhập để sử dụng dịch vụ của chúng tôi</h1>
+                    </div>
+                    ';
+                } else {
+                    $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+                    extract($tk);
+                    $carts = load_cart_tk($id_tk);
+                    include "view/cart.php";
+                }
+                break;
+            
         case 'delcart':
             if (isset($_GET['idcart'])) {
                 $id = $_GET['idcart'];
@@ -220,5 +231,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 } else {
     include "view/home.php";
 }
-  include "view/footer.php";
+if(isset($_GET['act']) && $_GET['act'] != "dangnhap" && $_GET['act'] != "dangki") {
+    include "view/footer.php";
+} elseif (!isset($_GET['act'])) {
+    include "view/footer.php";
+}
+  
 ?>

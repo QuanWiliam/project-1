@@ -84,12 +84,18 @@ echo '
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                                <div class="quantity" >
+                                    <div class="pro-qty1">
+                                        <button class=" border-0 bg-0" id="decrease">
+                                        <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                        <span type="text" id="quantity">1</span>
+                                        <button class=" border-0 bg-0" id="increase">
+                                        <i class="fa-solid fa-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                <a class="primary-btn" id="btn-add" href="index.php?act=addtocart&id=' . $id_sp . '">ADD TO CART</a>
                             </div>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
@@ -168,7 +174,7 @@ echo '
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="related-title">Related Product</h3>
+                <h3 class="related-title">Sản phẩm cùng loại</h3>
             </div>
         </div>
 
@@ -224,3 +230,34 @@ echo '
     </div>
 </section>
 <!-- Related Section End -->
+
+<script>
+// Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
+const btnAdd = document.getElementById("btn-add");
+let link = btnAdd.href;
+let quantity = 1;
+
+// Xử lý sự kiện click của nút tăng số lượng
+document.querySelector("#increase").addEventListener("click", function() {
+    // Tăng số lượng lên 1
+    quantity++;
+    btnAdd.href = `${link}&amount=${quantity}`
+    // Cập nhật số lượng trong giỏ hàng
+    document.querySelector("#quantity").textContent = quantity;
+});
+
+// Xử lý sự kiện click của nút giảm số lượng
+document.querySelector("#decrease").addEventListener("click", function() {
+    // Giảm số lượng xuống 1
+    quantity--;
+
+    // Kiểm tra số lượng có còn lớn hơn 0 không
+    if (quantity < 1) {
+        // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
+        quantity = 1;
+    }
+    btnAdd.href = `${link}&amount=${quantity}`
+    // Cập nhật số lượng trong giỏ hàng
+    document.querySelector("#quantity").textContent = quantity;
+});
+</script>

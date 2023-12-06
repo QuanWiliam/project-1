@@ -134,7 +134,7 @@
                                 </ul>
                             </li>
                             <li><a href="index.php?act=blog">Blog</a></li>
-                            <li><a href="./contact.html">Liên hệ</a></li>
+                            <li><a href="index.php?act=lienhe">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>

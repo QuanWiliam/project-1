@@ -56,7 +56,7 @@ foreach ($bl as $val) {
 
         ?>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-            <input type="hidden" name="id_sp" value="<?= $id_sp ?>">
+            <input type="hidden" name="id_sp" value="<?= $idpro ?>">
             <div class="bg-light ">
                 <div class="d-flex flex-row align-items-start">
                     <textarea name="noidung" class="form-control ml-1 shadow-none textarea"></textarea>

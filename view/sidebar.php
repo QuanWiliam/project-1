@@ -1,10 +1,9 @@
 <div class="col-lg-3">
     <div class="shop__sidebar">
         <div class="shop__sidebar__search">
-            <form action="#">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><span class="icon_search"></span></button>
-            </form>
+            <form action="index.php?act=timkiemsp" method="post">
+                <input type="text" name="kyw" placeholder="Search...">
+                <input type="submit" name="timkiem" value="Tìm kiếm">
         </div>
         <div class="shop__sidebar__accordion">
             <div class="accordion" id="accordionExample">

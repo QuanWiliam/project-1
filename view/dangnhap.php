@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,16 +36,10 @@
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="your_name" placeholder="Your Name" />
-                                <p style="color: red;">
-                                    <?= $thongbao ?>
-                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="your_pass" placeholder="Password" />
-                                <p style="color: red;">
-                                    <?= $thongbao ?>
-                                </p>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

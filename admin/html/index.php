@@ -1,8 +1,10 @@
 <?php
+ob_start();
 include "../../model/pdo.php";
 include "../../model/danhmuc.php";
 include "../../model/taikhoan.php";
 include "../../model/sanpham.php";
+include "../../model/donhang.php";
 include "../../model/binhluan.php";
 include "../html/header.php";
 if (isset($_GET['act'])) {
@@ -253,15 +255,33 @@ if (isset($_GET['act'])) {
             include "../html/taikhoan/list_taikhoan.php";
             break;
 
-            case "binhluan":
-                $listbl = binhluan_all();
-                include "../html/binhluan/list_binhluan.php";
-                break;
+        case "binhluan":
+            $listbl = binhluan_all();
+            include "../html/binhluan/list_binhluan.php";
+            break;
+        case "listdonhang":
+            $lisorder = load_all_donhang();
+            include_once "../html/order/listorder.php";
+            break;
+        case "updatedh":
+            $id = $_GET['id'];
+            $listdh = load_one_donhang($id);
+            include "../html/order/updateoder.php";
+            break;
+        case "updatethanhcong":
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id_order'];
+                $status = $_POST['tthai'];
+
+                update_donhang($status, $id);
+            }
+            header("Location: index.php?act=listdonhang");
+            break;
     }
 
 } else {
     include "../html/home.php";
 }
 include "../html/footer.php";
-
+ob_end_flush();
 ?>

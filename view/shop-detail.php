@@ -55,6 +55,13 @@ echo '
                         </div>
                     </div>
                 </div>
+            
+
+            <div class="tab-pane" id="tabs-7" role="tabpanel">
+                <div class="product__details__tab__content ">
+                    <iframe class="border-0 position-relative" src="view/binhluan.php?id_sp=' . $id_sp . '" style="height:450px;width:100%;" title="description"></iframe>
+                </div>
+            </div>
 </section>
 ';
 

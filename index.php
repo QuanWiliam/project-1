@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include "model/pdo.php";
 include "model/sanpham.php";
@@ -16,7 +17,7 @@ $sphomeHot = load_sp_home_hot();
 
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
-    
+
     switch ($act) {
         case 'blog':
             include "view/blog.php";
@@ -24,7 +25,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'lienhe':
             include "view/lienhe.php";
             break;
-            // đây là phần tìm kiếm
+        // đây là phần tìm kiếm
         case "timkiemsp":
             $kyw = '';
             if (isset($_POST['timkiem']) && ($_POST['timkiem'])) {
@@ -52,7 +53,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/timkiem.php";
             break;
 
-            // đây là phần tìm kiếm theo phần sidebar
+        // đây là phần tìm kiếm theo phần sidebar
         case 'sanpham':
             if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc'])) {
                 $id_danhmuc = $_GET['id_danhmuc'];
@@ -108,24 +109,24 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $thongbao = "";
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-            
+
                 if ($username == "" || $password == "") {
                     $thongbao = "Hãy nhập đầy đủ thông tin!";
                 } else {
                     // Đảm bảo hàm check_taikhoan() được định nghĩa và trả về dữ liệu một cách chính xác
                     $checkuser = check_taikhoan($username, $password);
-            
+
                     if (is_array($checkuser)) {
                         $_SESSION['user'] = $checkuser;
-            
+
                         // Đặt session 'return_to' chỉ khi không có giá trị trước đó
                         if (!isset($_SESSION['return_to'])) {
                             $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
                         }
 
-            
+
                         // Sử dụng chỉ chuyển hướng bằng header
-                        header('Location: ' . $_SESSION['return_to']);
+                        header('Location: index.php');
 
                         exit();
                     } else {
@@ -134,13 +135,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 }
             }
 
-        include 'view/dangnhap.php';
+            include 'view/dangnhap.php';
 
-        break;
+            break;
 
 
         case 'dangki':
- 
+
             if (isset($_POST['signup'])) {
                 $thongbao = "";
                 $username = $_POST['username'];
@@ -167,13 +168,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
 
-        case "dangxuat" :
-                // Xóa toàn bộ dữ liệu trong session
-                session_unset();
-                // Hủy phiên làm việc
-                session_destroy();
-                echo '<meta http-equiv="refresh" content="0;url=index.php">';
-                exit();
+        case "dangxuat":
+            // Xóa toàn bộ dữ liệu trong session
+            session_unset();
+            // Hủy phiên làm việc
+            session_destroy();
+            echo '<meta http-equiv="refresh" content="0;url=index.php">';
+            exit();
 
         case "addtocart":
             if (isset($_GET['id']) && $_GET['id']) {
@@ -233,9 +234,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             include "view/thanhtoan.php";
             break;
+
+        case 'xemdonhang':
+            include "view/xemdonhang.php";
+            break;
     }
 } else {
     include "view/home.php";
 }
-  include "view/footer.php";
+include "view/footer.php";
+ob_end_flush();
 ?>

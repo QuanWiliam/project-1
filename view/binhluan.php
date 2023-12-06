@@ -23,10 +23,10 @@ foreach ($bl as $val) {
             <div class="col-md-8">
                 <div class="d-flex flex-column comment-section">
                     <div class="bg-white p-2">
-                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">'.$name_tk.'</span><span class="date text-black-50">Chia sẻ công khai - '.$ngaybinhluan.'</span></div>
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">' . $name_tk . '</span><span class="date text-black-50">Chia sẻ công khai - ' . $ngaybinhluan . '</span></div>
                         </div>
                         <div class="mt-2">
-                            <p class="comment-text">'.$noidung.'</p>
+                            <p class="comment-text">' . $noidung . '</p>
                         </div>
                     </div><hr>
                     
@@ -45,7 +45,8 @@ foreach ($bl as $val) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
@@ -53,7 +54,7 @@ foreach ($bl as $val) {
     <?php
     if (isset($_SESSION['user']) && (count($_SESSION['user'])) > 0) {
 
-    ?>
+        ?>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <input type="hidden" name="id_sp" value="<?= $idpro ?>">
             <div class="bg-light ">
@@ -65,7 +66,7 @@ foreach ($bl as $val) {
                 </div>
             </div>
         </form>
-    <?php
+        <?php
     } else {
 
         echo '<a href="../index.php?act=dangnhap" target="_parent">Bạn phải đăng nhập mới có thể bình luận</a>';

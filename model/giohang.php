@@ -34,9 +34,28 @@ function load_hoadon($id)
     return $hoadon;
 }
 
-function ton_tai($id)
+function ton_tai($id, $id_gh)
 {
-    $sql = "SELECT * FROM CT_GIOHANG WHERE ID_SP = $id";
+    $sql = "SELECT * FROM CT_GIOHANG WHERE ID_SP = $id AND ID_GIOHANG = $id_gh";
     return pdo_query_one($sql);
 }
+
+function updateSL($id, $amount)
+{
+    $sql = "UPDATE CT_GIOHANG SET AMOUNT = $amount WHERE ID_CTGIOHANG = $id ";
+    pdo_execute($sql);
+}
+
+function loadAllGioHang($id)
+{
+    $sql = "SELECT id_sp, amount FROM CT_GIOHANG WHERE id_giohang = $id";
+    return pdo_query($sql);
+}
+
+function deleteAll($id)
+{
+    $sql = "DELETE FROM CT_GIOHANG WHERE id_giohang = $id";
+    pdo_execute($sql);
+}
+
 ?>

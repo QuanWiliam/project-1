@@ -73,7 +73,7 @@
                     </div>
                     <div class="banner__item__text">
                         <h2>Các dòng áo polo</h2>
-                        <a href="#">Mua ngay</a>
+                        <a href="index.php?act=shop">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="banner__item__text">
                         <h2>Bộ sưu tập áo khoác</h2>
-                        <a href="#">Mua ngay</a>
+                        <a href="index.php?act=shop">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                             <div class="product__item__text">
                                 <h6>' . $name_sp . '</h6>
                                 <div>
-                                <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
+                                <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">Thêm vào giỏ hàng</a>
                             </div>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -137,7 +137,7 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>' . $price_sp . '</h5>
+                                <h5>' . $price_sp . '.000.VND</h5>
                                 <div class="product__color__select">
                                     <label for="pc-1">
                                         <input type="radio" id="pc-1">
@@ -171,7 +171,7 @@
                     </div>
                     <div class="product__item__text">
                         <h6>' . $name_sp . '</h6>
-                        <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
+                        <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">Thêm vào giỏ hàng</a>
                         <div class="rating">
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
@@ -179,7 +179,7 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        <h5>' . $price_sp . '</h5>
+                        <h5>' . $price_sp . '.000.VND</h5>
                         <div class="product__color__select">
                             <label for="pc-4">
                                 <input type="radio" id="pc-4">

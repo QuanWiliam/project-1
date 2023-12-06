@@ -6,12 +6,14 @@ include "model/danhmuc.php";
 include "model/taikhoan.php";
 include "model/giohang.php";
 
+
 // để tránh include "view/header.php"; vào trang đăng nhập và đăng kí
 if(isset($_GET['act']) && $_GET['act'] != "dangnhap" && $_GET['act'] != "dangki") {
     include "view/header.php";
 } elseif (!isset($_GET['act'])) {
     include "view/header.php";
 }
+
 include "global.php";
 
 $sphome = load_sp_home();
@@ -184,12 +186,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 extract($sp);
                 $tk = load_giohang_tk($_SESSION['user']['id_tk']);
                 extract($tk);
-                if (empty(ton_tai($id_sp))) {
+                if (empty(ton_tai($id_sp, $id_giohang))) {
                     addtocart($id_giohang, $id_sp, $price_sp, $amount);
                 }
-                $carts = load_cart_tk($id_tk);
-                include "view/cart.php";
             }
+            if ($_GET['idcart'] && $_GET['amount']) {
+                updateSL($_GET['idcart'], $_GET['amount']);
+            }
+            // Lấy hết sp trong giỏ hàng
+            $id_tk = $_SESSION['user']['id_tk'];
+            $carts = load_cart_tk($id_tk);
+            include "view/cart.php";
             break;
             case 'listcart':
                 if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
@@ -225,6 +232,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/checkout.php";
             break;
         case 'thanhtoan':
+            if (isset($_POST['btn-payment'])) {
+                $total = $_POST['total'];
+                $idBill = themDonHang($total);
+                $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+                extract($tk);
+                $listId = loadAllGioHang($id_giohang);
+                foreach ($listId as $sp) {
+                    themChitietHD($idBill, $sp['id_sp'], $sp['amount']);
+                }
+                deleteAll($id_giohang);
+            }
             include "view/thanhtoan.php";
             break;
     }

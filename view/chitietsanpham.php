@@ -10,7 +10,7 @@ echo '
             <div class="col-lg-12">
                 <div class="product__details__breadcrumb">
                     <a href="./index.php">Home</a>
-                    <a href="./shop.html">Shop</a>
+                    <a href="./shop.php">Shop</a>
                     <span>Product Details</span>
                 </div>
             </div>
@@ -99,7 +99,7 @@ echo '
                             </div>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                                <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
+                                <a href="index.php?act=addtocart&id=' . $id_sp . '"><i class="fa fa-exchange"></i> Add To Compare</a>
                             </div>
                             <div class="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
@@ -135,7 +135,7 @@ echo '
                                         pharetras loremos.</p>
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
-                                            <p>'.$mota.'</p>
+                                            <p>' . $mota . '</p>
                                             
                                         </div>
                                         <div class="product__details__tab__content__item">
@@ -152,7 +152,7 @@ echo '
                                 </div>
                                 <div class="tab-pane" id="tabs-7" role="tabpanel">
                                     <div class="product__details__tab__content ">
-                                    <iframe class="border-0 position-relative" src="view/binhluan.php?id_sp='.$id_sp.'" style="height:450px;width:100%;" title="description"></iframe>
+                                    <iframe class="border-0 position-relative" src="view/binhluan.php?id_sp=' . $id_sp . '" style="height:450px;width:100%;" title="description"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -180,11 +180,11 @@ echo '
 
         <div class="row">
             <?php
-        foreach ($sanphamcungloai as $cungloai) {
-            extract($cungloai);
-            $img = $img_path . $img_sp;
+            foreach ($sanphamcungloai as $cungloai) {
+                extract($cungloai);
+                $img = $img_path . $img_sp;
 
-            echo '
+                echo '
             <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
             <div class="product__item">
                 <div class="product__item__pic set-bg" data-setbg="' . $img . '">
@@ -221,11 +221,11 @@ echo '
             </div>
         </div>
             ';
-            
-        }
 
-       
-        ?>
+            }
+
+
+            ?>
         </div>
     </div>
 </section>

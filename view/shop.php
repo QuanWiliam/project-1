@@ -5,8 +5,8 @@
                 <div class="breadcrumb__text">
                     <h4>Shop</h4>
                     <div class="breadcrumb__links">
-                        <a href="./index.php">Home</a>
-                        <span>Shop</span>
+                        <a href="./index.php">Trang chủ</a>
+                        <span>Sản Phẩm</span>
                     </div>
                 </div>
             </div>
@@ -62,6 +62,7 @@
                                         <div class="product__item__text">
                                             <h6>' . $name_sp . '</h6>
                                             <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
+
                                             <div class="rating">
                                                 <i class="fa fa-star-o"></i>
                                                 <i class="fa fa-star-o"></i>
@@ -69,7 +70,7 @@
                                                 <i class="fa fa-star-o"></i>
                                                 <i class="fa fa-star-o"></i>
                                             </div>
-                                            <h5>' . $price_sp . ' VND</h5>
+                                            <h5>' . $price_sp . '.000.VND</h5>
                                             <div class="product__color__select">
                                                 <label for="pc-4">
                                                     <input type="radio" id="pc-4">

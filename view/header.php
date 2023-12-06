@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Male-Fashion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css">
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -60,6 +61,7 @@
             <a href="#"><img src="img/icon/heart.png" alt=""></a>
             <a href="index.php?act=cart.php" ><img src="img/icon/cart.png" onclick="myFunction()" alt=""> <span>0</span></a>
             <div class="price">$0.00</div>
+
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__text">
@@ -143,8 +145,8 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="index.php?act=listcart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="index.php?act=addtocart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        <div class="price">VND0.00</div>
                     </div>
                 </div>
             </div>

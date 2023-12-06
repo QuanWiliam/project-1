@@ -11,9 +11,9 @@ echo '
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__details__breadcrumb">
-                        <a href="./index.php">Home</a>
-                        <a href="./shop.php">Shop</a>
-                        <span>Product Details</span>
+                        <a href="./index.php">Trang chủ</a>
+                        <a href="./shop.php">Sản phẩm</a>
+                        <span>Chi tiết sản phẩm</span>
                     </div>
                 </div>
             </div>
@@ -24,9 +24,7 @@ echo '
                 <div class="product-right">
                     <div class="name-product">
                         <h2 class="mb">' . $name_sp . '</h2>
-
-                        <h3 class="price mb">$' . $price_sp . '<span>$470.00</span></h3>
-
+                        <h3 class="price mb">' . $price_sp . '.000.VND</h3>
                         <div class="product__details__option__size mb">
                                     <span>Size:</span>
                                     <label for="xxl">xxl
@@ -42,14 +40,13 @@ echo '
                                         <input type="radio" id="sm">
                                     </label>
                                 </div>
-
                         <div class="prices mb">
                         <button id="decrease">-</button>
                         <span id="quantity">1</span>
                         <button id="increase">+</button>
                         </div>
 
-                        <a class="prices add" id="btn-add" href="index.php?act=addtocart&id=' . $id_sp . '"><button class="mb">ADD TO CART</button></a>
+                        <a class="prices add" id="btn-add" href="index.php?act=addtocart&id=' . $id_sp . '"><button class="mb">Thêm vào giỏ hàng</button></a>
 
                         <div class="list-img prices">
                         </div>
@@ -69,7 +66,7 @@ echo '
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="related-title">Related Product</h3>
+                <h3 class="related-title">Sản Phẩm Cùng Loại</h3>
             </div>
         </div>
 
@@ -126,76 +123,76 @@ echo '
 </section>
 <!-- Related Section End -->
 <style>
-.product-left img {
-    width: 400px;
-}
+    .product-left img {
+        width: 400px;
+    }
 
-.mb {
-    margin-bottom: 20px;
-}
+    .mb {
+        margin-bottom: 20px;
+    }
 
-.so {
-    width: 30px;
-    text-align: center;
-}
+    .so {
+        width: 30px;
+        text-align: center;
+    }
 
-.price {
-    margin-right: 180px;
-    font-size: 25px;
-}
+    .price {
+        margin-right: 180px;
+        font-size: 25px;
+    }
 
-.price span {
-    text-decoration-line: line-through;
-    opacity: 0.5;
-    margin-left: 10px;
-}
+    .price span {
+        text-decoration-line: line-through;
+        opacity: 0.5;
+        margin-left: 10px;
+    }
 
-.prices {
-    margin-right: 230px;
-}
+    .prices {
+        margin-right: 230px;
+    }
 
-.add button {
-    background-color: black;
-    color: white;
-}
+    .add button {
+        background-color: black;
+        color: white;
+    }
 
-.list-img ul {
-    list-style-type: none;
-}
+    .list-img ul {
+        list-style-type: none;
+    }
 
-.mota {
-    width: 700px;
-    float: left;
-}
+    .mota {
+        width: 730px;
+        text-align: center;
+    }
 </style>
 
 <script>
-// Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
-const btnAdd = document.getElementById("btn-add");
-let link = btnAdd.href;
-let quantity = 1;
+    // Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
+    const btnAdd = document.getElementById("btn-add");
+    let link = btnAdd.href;
+    let quantity = 1;
 
-// Xử lý sự kiện click của nút tăng số lượng
-document.querySelector("#increase").addEventListener("click", function() {
-    // Tăng số lượng lên 1
-    quantity++;
-    btnAdd.href = `${link}&amount=${quantity}`
-    // Cập nhật số lượng trong giỏ hàng
-    document.querySelector("#quantity").textContent = quantity;
-});
+    // Xử lý sự kiện click của nút tăng số lượng
+    document.querySelector("#increase").addEventListener("click", function () {
+        // Tăng số lượng lên 1
+        quantity++;
+        btnAdd.href = `${link}&amount=${quantity}`
+        // Cập nhật số lượng trong giỏ hàng
+        document.querySelector("#quantity").textContent = quantity;
+    });
 
-// Xử lý sự kiện click của nút giảm số lượng
-document.querySelector("#decrease").addEventListener("click", function() {
-    // Giảm số lượng xuống 1
-    quantity--;
+    // Xử lý sự kiện click của nút giảm số lượng
+    document.querySelector("#decrease").addEventListener("click", function () {
+        // Giảm số lượng xuống 1
+        quantity--;
 
-    // Kiểm tra số lượng có còn lớn hơn 0 không
-    if (quantity < 1) {
-        // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
-        quantity = 1;
-    }
-    btnAdd.href = `${link}&amount=${quantity}`
-    // Cập nhật số lượng trong giỏ hàng
-    document.querySelector("#quantity").textContent = quantity;
-});
+        // Kiểm tra số lượng có còn lớn hơn 0 không
+        if (quantity < 1) {
+            // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
+            quantity = 1;
+        }
+        btnAdd.href = `${link}&amount=${quantity}`
+        // Cập nhật số lượng trong giỏ hàng
+        document.querySelector("#quantity").textContent = quantity;
+    });
 </script>

@@ -56,12 +56,13 @@
                                                 <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
                                                 <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>
                                                 </li>
-                                                <li><a name="chitiet" href="index.php?act=shopdetail&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
+                                                <li><a name="chitiet" href="index.php?act=chitietsanpham&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__item__text">
                                             <h6>' . $name_sp . '</h6>
-                                            <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart" class="add-cart">Thêm vào giỏ hàng</a>
+                                            <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
+
                                             <div class="rating">
                                                 <i class="fa fa-star-o"></i>
                                                 <i class="fa fa-star-o"></i>

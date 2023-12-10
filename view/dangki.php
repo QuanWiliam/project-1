@@ -27,11 +27,11 @@
                         <form action="index.php?act=dangki" method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="name" placeholder="Hãy nhập tên của bạn" />
+                                <input type="text" name="username" id="name" placeholder="NNhập tên của bạn" />
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Hãy nhập Email của bạn " />
+                                <input type="email" name="email" id="email" placeholder="Nhập Email của bạn " />
                             </div>
                             <div class="form-group">
                                 <label for="address"><i class="zmdi zmdi-map"></i></label>
@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>Tôi đồng ý
-                                    tất cả các <a href="#" class="term-service">Điều khoản của dịch vụ</a></label>
+                                    tất cả các <a href="#" class="term-service">Điều khoản & dịch vụ</a></label>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Đăng ký" />
@@ -64,7 +64,7 @@
                         <figure><img src="signin_up/images/pexels-w-r-1450114-removebg-preview.png" alt="sing up image">
                         </figure>
                         <a href="index.php?act=dangnhap" class="signup-image-link">Bạn đã có tài khoản? Đăng nhập
-                            ngay</a>
+                            </a>
                     </div>
                 </div>
             </div>

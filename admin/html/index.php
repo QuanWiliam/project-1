@@ -8,12 +8,8 @@ include "../../model/sanpham.php";
 include "../../model/donhang.php";
 include "../../model/binhluan.php";
 
-
-if (isset($_GET['act']) && $_GET['act'] != "dangnhap") {
-    include "../html/header.php";
-} elseif (!isset($_GET['act'])) {
-    include "../html/header.php";
-}
+include "../../model/thongke.php";
+include "../html/header.php";
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -285,32 +281,49 @@ if (isset($_GET['act'])) {
             }
             header("Location: index.php?act=listdonhang");
             break;
-        case "thongke":
-            include "../html/thongke.php";
-            break;
-        // case "dangnhap":
-        //     if(isset($_POST['dangnhap']) && $_POST['dangnhap']){
-        //         $ten = $_POST['ten'];
-        //         $mk = $_POST['matkhau'];
+        case "xoadh":
+            if (isset($_GET['id_order'])) {
+                $id_order = $_GET['id_order'];
+                delete_donhang($id_order);
+            }
+            $lisorder = load_all_donhang();
+            header("Location: index.php?act=listdonhang");
 
-        //         if($ten == "" || $mk == ""){
-        //             echo '<script>
-        //             alert("nhập đầy đủ thông tin");
-        //             </script>';
-        //         }else{
-        //             $checkuser = check_taikhoan($ten,$mk);
-        //             if(is_array($checkuser)){
-        //                 $_SESSION['user'] = $checkuser;
-        //                 header("location: ../html/index.php");
-        //             }else{
-        //                 echo '<script>
-        //             alert("nhập sai thông tin");
-        //             </script>';
-        //             }
-        //         }
-        //     }
-        //     include "../html/dangnhap.php";
-        //     break;
+        case "thongke":
+            if (isset($_POST['submittk'])) {
+                $selectTime = $_POST['timeRange'];
+
+                if ($selectTime == "years") {
+                    $time = "Năm";
+
+                } elseif ($selectTime == "month") {
+                    $time = "Tháng";
+                } elseif ($selectTime == "365day") {
+                    $currentDate = date("Y-m-d");
+                    $previousDate = date("Y-m-d", strtotime($currentDate . " -365 days"));
+                    $time = "365 ngày";
+                    $thongke = thongkedonhang($previousDate, $currentDate);
+                } elseif ($selectTime == "28day") {
+                    $currentDate = date("Y-m-d");
+                    $previousDate = date("Y-m-d", strtotime($currentDate . " -28 days"));
+                    $time = "28 ngày";
+                    $thongke = thongkedonhang($previousDate, $currentDate);
+                } elseif ($selectTime == "7day") {
+                    $currentDate = date("Y-m-d");
+                    $previousDate = date("Y-m-d", strtotime($currentDate . " -7 days"));
+                    $time = "7 ngày";
+                    $thongke = thongkedonhang($previousDate, $currentDate);
+                }
+                require_once "thongke/thongke.php";
+                break;
+            }
+            $currentDate = date("Y-m-d");
+            $previousDate = date("Y-m-d", strtotime($currentDate . " -7 days"));
+            $time = "7 ngày";
+            $thongke = thongkedonhang($previousDate, $currentDate);
+            include "thongke/thongke.php";
+            break;
+
     }
 
 } else {
@@ -318,11 +331,7 @@ if (isset($_GET['act'])) {
     include "../html/home.php";
 }
 
-if (isset($_GET['act']) && $_GET['act'] != "dangnhap") {
-    include "../html/footer.php";
-} elseif (!isset($_GET['act'])) {
-    include "../html/footer.php";
-}
+include "../html/footer.php";
 
 ob_end_flush();
 ?>

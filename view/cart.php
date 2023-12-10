@@ -71,7 +71,9 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Total <span><?= number_format($tong, 0, '.') ?> VND</span></li>
+                        <li>Total <span>
+                                <?= number_format($tong, 0, '.') ?> VND
+                            </span></li>
                     </ul>
                     <a href="index.php?act=checkout" class="primary-btn">Proceed to checkout</a>
                 </div>

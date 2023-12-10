@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Đăng Nhập</title>
+
     <link rel="stylesheet" href="signin_up/fonts/material-icon/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="signin_up/css/style2.css">
 </head>
@@ -25,10 +26,10 @@
                         <figure><img src="signin_up/images/pexels-uncoveredlens-eze-joshua-3620411-removebg-preview.png"
                                 alt="sing up image"></figure>
 
-                        <a href="index.php?act=dangki" class="signup-image-link">Create an account</a>
+                        <a href="index.php?act=dangki" class="signup-image-link">Bạn chưa có tài khoản? Đăng ký ngay</a>
                     </div>
                     <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Đăng nhập</h2>
                         <form action="index.php?act=dangnhap" method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -43,15 +44,15 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
-                                    me</label>
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span> Ghi nhớ tài
+                                    khoản!</label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng Nhập" />
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Or login with</span>
+                            <span class="social-label">Hoặc có thể đăng nhập với</span>
                             <ul class="socials">
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>

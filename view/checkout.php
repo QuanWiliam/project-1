@@ -61,7 +61,7 @@
                                 </ul>'
                                 ?>
                             <input type="hidden" name="total" value="<?= $tong ?>">
-                            <button name="btn-payment" class="site-btn" type="submit">Thanh toán</button>
+                                <button  name="btn-payment" class="site-btn" type="submit">Thanh toán"</button>
                         </div>
                     </div>
                 </div>

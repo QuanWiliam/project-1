@@ -49,14 +49,14 @@ function load_sp_home()
 // đây là load sản phẩm mới 
 function load_sp_home_new_arr()
 {
-  $sql = "select * from sanpham where 1 order by id_sp desc limit 0,3";
+  $sql = "select * from sanpham where 1 order by id_sp desc limit 0,4";
   $listsp = pdo_query($sql);
   return $listsp;
 }
 // đây là load sản phẩm hot sales
 function load_sp_home_hot()
 {
-  $sql = "select * from sanpham where 1 order by id_sp desc limit 4,7";
+  $sql = "select * from sanpham where 1 order by luotxem desc limit 0,4";
   $listsp = pdo_query($sql);
   return $listsp;
 }

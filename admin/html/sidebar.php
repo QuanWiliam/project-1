@@ -47,8 +47,8 @@
 
                 <!-- cart -->
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html"
-                        aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">cart</span></a>
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../html/index.php?act=thongke"
+                        aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Thống kê</span></a>
                 </li>
                 <!-- hết cart -->
 

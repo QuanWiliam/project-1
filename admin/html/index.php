@@ -277,6 +277,7 @@ if (isset($_GET['act'])) {
             }
             header("Location: index.php?act=listdonhang");
             break;
+<<<<<<< HEAD
 
         case "xoadh":
             if (isset($_GET['id_order'])) {
@@ -285,6 +286,10 @@ if (isset($_GET['act'])) {
             }
             $lisorder = load_all_donhang();
             header("Location: index.php?act=listdonhang");
+=======
+        case "thongke":
+            include "../html/thongke.php";
+>>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
             break;
     }
 

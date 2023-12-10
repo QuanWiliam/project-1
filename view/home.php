@@ -102,7 +102,7 @@
 
                     <li class="active" data-filter="*">Bán chạy nhất</li>
                     <li data-filter=".new-arrivals">Điểm đến mới</li>
-                    <li data-filter=".hot-sales">Giảm giá sốc</li>
+                    <li data-filter=".hot-sales">Quan tâm nhất</li>
 
                 </ul>
             </div>
@@ -122,7 +122,7 @@
                                 <ul class="product__hover">
                                     <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
                                     <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                    <li><a name="chitiet" href="index.php?act=shopdetail&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
+                                    <li><a name="chitiet" href="index.php?act=chitietsanpham&id_sp=' . $id_sp . '"><img src="img/icon/search.png" alt=""></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
@@ -137,7 +137,11 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
+<<<<<<< HEAD
                                 <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
+=======
+                                <h5>' . $price_sp . ' VND</h5>
+>>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
                                 <div class="product__color__select">
                                     <label for="pc-1">
                                         <input type="radio" id="pc-1">
@@ -179,7 +183,11 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
+<<<<<<< HEAD
                         <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
+=======
+                        <h5>' . $price_sp . ' VND</h5>
+>>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
                         <div class="product__color__select">
                             <label for="pc-4">
                                 <input type="radio" id="pc-4">

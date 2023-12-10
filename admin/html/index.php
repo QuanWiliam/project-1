@@ -277,6 +277,9 @@ if (isset($_GET['act'])) {
             }
             header("Location: index.php?act=listdonhang");
             break;
+        case "thongke":
+            include "../html/thongke.php";
+            break;
     }
 
 } else {

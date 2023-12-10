@@ -6,6 +6,7 @@ include "model/sanpham.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
 include "model/giohang.php";
+include "model/donhang.php";
 
 
 // để tránh include "view/header.php"; vào trang đăng nhập và đăng kí
@@ -108,8 +109,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'dangnhap':
 
+            $thongbao = "";
             if (isset($_POST['signin'])) {
-                $thongbao = "";
                 $username = $_POST['username'];
                 $password = $_POST['password'];
 
@@ -122,16 +123,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     if (is_array($checkuser)) {
                         $_SESSION['user'] = $checkuser;
 
-                        // Đặt session 'return_to' chỉ khi không có giá trị trước đó
-                        if (!isset($_SESSION['return_to'])) {
-                            $_SESSION['return_to'] = $_SERVER['REQUEST_URI'];
-                        }
-
-
-                        // Sử dụng chỉ chuyển hướng bằng header
-                        header('Location: index.php');
-
-                        exit();
+                        // Đặt'$previous' chỉ khi không có giá trị trước đó
+                        header('Location: ../index.php');
                     } else {
                         $thongbao = "Bạn nhập sai thông tin";
                     }
@@ -145,8 +138,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'dangki':
 
+            $thongbao = "";
             if (isset($_POST['signup'])) {
-                $thongbao = "";
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $re_password = $_POST['re_password'];
@@ -180,39 +173,47 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             exit();
 
         case "addtocart":
-            if (isset($_GET['id']) && $_GET['id']) {
-                $amount = isset($_GET['amount']) ? $_GET['amount'] : 1;
-                $id = $_GET['id'];
-                $sp = load_one_sanpham($id);
-                extract($sp);
-                $tk = load_giohang_tk($_SESSION['user']['id_tk']);
-                extract($tk);
-                if (empty(ton_tai($id_sp, $id_giohang))) {
-                    addtocart($id_giohang, $id_sp, $price_sp, $amount);
-                }
-            }
-            if ($_GET['idcart'] && $_GET['amount']) {
-                updateSL($_GET['idcart'], $_GET['amount']);
-            }
-            // Lấy hết sp trong giỏ hàng
-            $id_tk = $_SESSION['user']['id_tk'];
-            $carts = load_cart_tk($id_tk);
-            include "view/cart.php";
-            break;
-        case 'listcart':
             if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
                 echo '
                     <div class=" container h-75">
                       <h1>Hãy đăng nhập để sử dụng dịch vụ của chúng tôi</h1>
                     </div>
                     ';
-            } else {
-                $tk = load_giohang_tk($_SESSION['user']['id_tk']);
-                extract($tk);
+            }else{
+                if (isset($_GET['id']) && $_GET['id']) {
+                    $amount = isset($_GET['amount']) ? $_GET['amount'] : 1;
+                    $id = $_GET['id'];
+                    $sp = load_one_sanpham($id);
+                    extract($sp);
+                    $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+                    extract($tk);
+                    if (empty(ton_tai($id_sp, $id_giohang))) {
+                        addtocart($id_giohang, $id_sp, $price_sp, $amount);
+                    }
+                }
+                if (isset($_GET['idcart']) && $_GET['idcart'] && $_GET['amount']) {
+                    updateSL($_GET['idcart'], $_GET['amount']);
+                }
+                // Lấy hết sp trong giỏ hàng
+                $id_tk = $_SESSION['user']['id_tk'];
                 $carts = load_cart_tk($id_tk);
                 include "view/cart.php";
             }
             break;
+        // case 'listcart':
+        //     if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
+        //         echo '
+        //             <div class=" container h-75">
+        //               <h1>Hãy đăng nhập để sử dụng dịch vụ của chúng tôi</h1>
+        //             </div>
+        //             ';
+        //     } else {
+        //         $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+        //         extract($tk);
+        //         $carts = load_cart_tk($id_tk);
+        //         include "view/cart.php";
+        //     }
+        //     break;
 
         case 'delcart':
             if (isset($_GET['idcart'])) {
@@ -248,7 +249,16 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'xemdonhang':
-            include "view/xemdonhang.php";
+            if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
+                echo '
+                    <div class=" container h-75">
+                      <h1>Hãy đăng nhập để sử dụng dịch vụ của chúng tôi</h1>
+                    </div>
+                    ';
+            }else{
+
+                include "view/xemdonhang.php";
+            }
             break;
     }
 } else {

@@ -44,7 +44,7 @@ echo '
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3 class="price">' . $price_sp . ' VND<span>70.00</span></h3>
+                            <h3 class="price">' . number_format($price_sp, 0, '.', '.') . ' .VND</h3>
                             <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
                                 cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
                             with placket.</p>
@@ -205,7 +205,7 @@ echo '
                         <i class="fa fa-star-o"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <h5>' . $price_sp . '</h5>
+                    <h5>' . number_format($price_sp, 0, '.', '.') . '</h5>
                     <div class="product__color__select">
                         <label for="pc-1">
                             <input type="radio" id="pc-1">
@@ -232,32 +232,32 @@ echo '
 <!-- Related Section End -->
 
 <script>
-// Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
-const btnAdd = document.getElementById("btn-add");
-let link = btnAdd.href;
-let quantity = 1;
+    // Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
+    const btnAdd = document.getElementById("btn-add");
+    let link = btnAdd.href;
+    let quantity = 1;
 
-// Xử lý sự kiện click của nút tăng số lượng
-document.querySelector("#increase").addEventListener("click", function() {
-    // Tăng số lượng lên 1
-    quantity++;
-    btnAdd.href = `${link}&amount=${quantity}`
-    // Cập nhật số lượng trong giỏ hàng
-    document.querySelector("#quantity").textContent = quantity;
-});
+    // Xử lý sự kiện click của nút tăng số lượng
+    document.querySelector("#increase").addEventListener("click", function () {
+        // Tăng số lượng lên 1
+        quantity++;
+        btnAdd.href = `${link}&amount=${quantity}`
+        // Cập nhật số lượng trong giỏ hàng
+        document.querySelector("#quantity").textContent = quantity;
+    });
 
-// Xử lý sự kiện click của nút giảm số lượng
-document.querySelector("#decrease").addEventListener("click", function() {
-    // Giảm số lượng xuống 1
-    quantity--;
+    // Xử lý sự kiện click của nút giảm số lượng
+    document.querySelector("#decrease").addEventListener("click", function () {
+        // Giảm số lượng xuống 1
+        quantity--;
 
-    // Kiểm tra số lượng có còn lớn hơn 0 không
-    if (quantity < 1) {
-        // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
-        quantity = 1;
-    }
-    btnAdd.href = `${link}&amount=${quantity}`
-    // Cập nhật số lượng trong giỏ hàng
-    document.querySelector("#quantity").textContent = quantity;
-});
+        // Kiểm tra số lượng có còn lớn hơn 0 không
+        if (quantity < 1) {
+            // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
+            quantity = 1;
+        }
+        btnAdd.href = `${link}&amount=${quantity}`
+        // Cập nhật số lượng trong giỏ hàng
+        document.querySelector("#quantity").textContent = quantity;
+    });
 </script>

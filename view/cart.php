@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>' . $name_sp . '</h6>
-                                            <h5>' . number_format($price_sp, 0, '.', '.') . '.000.VND</h5>
+                                            <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
                                         </div>
                                     </td>
                                     <td class="quantity__item">
@@ -39,11 +39,11 @@
                                                 <div class="pro-qty-2">
                                                     <input type="number" name="amount" min="1" value="' . $amount . '">
                                                 </div>
-                                                <button type="submit">Xác nhận</button>
+                                                <button class="btn btn-success" type="submit">Xác nhận</button>
                                             </form>
                                         </div>
                                     </td>
-                                    <td class="cart__price">' . number_format($total, 0, '.', '.') . '.000.VND</td>
+                                    <td class="cart__price">' . number_format($total, 0, '.', '.') . '.VND</td>
                                     <td class="cart__close">' . $xoa_cart . '</td>
                                 </tr>';
                             }
@@ -60,9 +60,25 @@
                 </div>
             </div>
 
-            <!-- <div class="col-lg-4">
-                Rest of your code for discounts, total, and checkout
-            </div> -->
+            <div class="col-lg-4">
+                <div class="cart__discount">
+                    <h6>Discount codes</h6>
+                    <form action="#">
+                        <input type="text" placeholder="Coupon code">
+                        <button type="submit">Apply</button>
+                    </form>
+                </div>
+                <div class="cart__total">
+                    <h6>Cart total</h6>
+                    <ul>
+                        <li>Total <span>
+                                <?= number_format($tong, 0, '.', '.') ?>.VND
+                            </span></li>
+                    </ul>
+                    <a href="index.php?act=checkout" class="primary-btn">Proceed to checkout</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

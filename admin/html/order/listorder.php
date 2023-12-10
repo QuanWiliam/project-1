@@ -17,6 +17,7 @@
                     <?php
                     foreach ($lisorder as $order) {
                         extract($order);
+                        $xoadh = "index.php?act=xoadh&id_order=" . $id_order;
                         $tthai = [
                             "0" => "Chưa xác nhận",
                             "1" => "Đã xác nhận",
@@ -37,6 +38,9 @@
                             </td>
                             <td>
                                 <a href="../html/index.php?act=updatedh&id=<?= $id_order ?>">Thay Đổi Trạng Thái</a>
+                            </td>
+                            <td>
+                                <a href="<?= $xoadh ?>">Xóa Đơn Hàng</a>
                             </td>
                         </tr>
                     <?php } ?>

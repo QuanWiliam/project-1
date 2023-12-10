@@ -31,4 +31,10 @@ function update_donhang($status, $id_order)
     $sql = "UPDATE `order` SET `status` = $status WHERE `order`.`id_order` = $id_order";
     pdo_execute($sql);
 }
+
+function delete_donhang($id_order)
+{
+    $sql = "DELETE FROM `order` WHERE `id_order` = $id_order ";
+    pdo_execute($sql);
+}
 ?>

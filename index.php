@@ -5,6 +5,7 @@ include "model/pdo.php";
 include "model/sanpham.php";
 include "model/danhmuc.php";
 include "model/taikhoan.php";
+include "model/donhang.php";
 include "model/giohang.php";
 
 
@@ -191,7 +192,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     addtocart($id_giohang, $id_sp, $price_sp, $amount);
                 }
             }
-            if ($_GET['idcart'] && $_GET['amount']) {
+            if (isset($_GET['idcart']) && $_GET['amount']) {
                 updateSL($_GET['idcart'], $_GET['amount']);
             }
             // Lấy hết sp trong giỏ hàng

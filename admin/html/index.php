@@ -277,6 +277,15 @@ if (isset($_GET['act'])) {
             }
             header("Location: index.php?act=listdonhang");
             break;
+
+        case "xoadh":
+            if (isset($_GET['id_order'])) {
+                $id_order = $_GET['id_order'];
+                delete_donhang($id_order);
+            }
+            $lisorder = load_all_donhang();
+            header("Location: index.php?act=listdonhang");
+            break;
     }
 
 } else {

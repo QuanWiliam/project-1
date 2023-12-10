@@ -70,7 +70,7 @@
                                                 <i class="fa fa-star-o"></i>
                                                 <i class="fa fa-star-o"></i>
                                             </div>
-                                            <h5>' . $price_sp . '.000.VND</h5>
+                                            <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
                                             <div class="product__color__select">
                                                 <label for="pc-4">
                                                     <input type="radio" id="pc-4">
@@ -94,7 +94,7 @@
                     <div class="col-lg-12">
                         <div class="product__pagination">
                             <!-- <form action=""></form> chèn code này vào để tránh lỗi không nhận form  -->
-                            <form action=""></form> 
+                            <form action=""></form>
                             <form action="index.php?act=shop" method="post">
                                 <?php
                                 for ($i = 0; $i < $count; $i++) {

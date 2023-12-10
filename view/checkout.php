@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
-                            <h4 class="order__title">Your order</h4>
+                            <h4 class="order__title">Hóa đơn của bạn</h4>
                             <div class="checkout__order__products">Thông tin sản phẩm <span>Giá</span></div>
                             <?php
                             $tong = 0;
@@ -61,7 +61,7 @@
                                 </ul>'
                                 ?>
                             <input type="hidden" name="total" value="<?= $tong ?>">
-                                <button  name="btn-payment" class="site-btn" type="submit">Thanh toán"</button>
+                            <button name="btn-payment" class="site-btn" type="submit">Thanh toán</button>
                         </div>
                     </div>
                 </div>

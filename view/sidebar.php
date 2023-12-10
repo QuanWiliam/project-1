@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-heading">
                         <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
                     </div>
@@ -55,8 +55,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
+                </div> -->
+                <!-- <div class="card">
                     <div class="card-heading">
                         <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
                     </div>
@@ -74,8 +74,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
+                </div> -->
+                <!-- <div class="card">
                     <div class="card-heading">
                         <a data-toggle="collapse" data-target="#collapseFour">Size</a>
                     </div>
@@ -109,8 +109,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
+                </div> -->
+                <!-- <div class="card">
                     <div class="card-heading">
                         <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
                     </div>
@@ -147,8 +147,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
+                </div> -->
+                <!-- <div class="card">
                     <div class="card-heading">
                         <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                     </div>
@@ -165,7 +165,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

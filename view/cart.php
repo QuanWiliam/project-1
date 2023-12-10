@@ -28,11 +28,7 @@
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>' . $name_sp . '</h6>
-<<<<<<< HEAD
-                                            <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
-=======
                                             <h5>' . number_format($price_sp, 0, '.') . ' VND</h5>
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
                                         </div>
                                     </td>
                                     <td class="quantity__item">
@@ -47,11 +43,7 @@
                                             </form>
                                         </div>
                                     </td>
-<<<<<<< HEAD
-                                    <td class="cart__price">' . number_format($total, 0, '.', '.') . '.VND</td>
-=======
                                     <td class="cart__price">' . number_format($total, 0, '.') . ' VND</td>
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
                                     <td class="cart__close">' . $xoa_cart . '</td>
                                 </tr>';
                             }
@@ -79,13 +71,9 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-<<<<<<< HEAD
                         <li>Total <span>
-                                <?= number_format($tong, 0, '.', '.') ?>.VND
+                                <?= number_format($tong, 0, '.') ?> VND
                             </span></li>
-=======
-                        <li>Total <span><?= number_format($tong, 0, '.') ?> VND</span></li>
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
                     </ul>
                     <a href="index.php?act=checkout" class="primary-btn">Proceed to checkout</a>
                 </div>

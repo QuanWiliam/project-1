@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__text">
-                    <h4>Shop</h4>
+                    <h4>Mua hàng</h4>
                     <div class="breadcrumb__links">
                         <a href="./index.php">Trang chủ</a>
                         <span>Sản Phẩm</span>
@@ -28,17 +28,10 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__left">
-                                <p>Showing 1–12 of 126 results</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
-                                <p>Sort by Price:</p>
-                                <select>
-                                    <option value="">Low To High</option>
-                                    <option value="">$0 - $55</option>
-                                    <option value="">$55 - $100</option>
-                                </select>
                             </div>
                         </div>
                     </div>
@@ -61,7 +54,7 @@
                                         </div>
                                         <div class="product__item__text">
                                             <h6>' . $name_sp . '</h6>
-                                            <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">+ Add To Cart</a>
+                                            <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">Thêm vào giỏ hàng</a>
 
                                             <div class="rating">
                                                 <i class="fa fa-star-o"></i>
@@ -70,11 +63,7 @@
                                                 <i class="fa fa-star-o"></i>
                                                 <i class="fa fa-star-o"></i>
                                             </div>
-<<<<<<< HEAD
                                             <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
-=======
-                                            <h5>' . $price_sp . ' VND</h5>
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
                                             <div class="product__color__select">
                                                 <label for="pc-4">
                                                     <input type="radio" id="pc-4">

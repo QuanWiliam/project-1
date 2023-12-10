@@ -60,23 +60,21 @@
         </div>
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-<<<<<<< HEAD
-
             <!-- <a href="index.php?act=xemdonhang"><img src="" alt="">Xem đơn hàng</a>
-            <a href="index.php?act=cart.php"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">VND 0.00</div> -->
+                <a href="index.php?act=cart.php"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <div class="price">VND 0.00</div> -->
 
             <a href="#"><img src="img/icon/heart.png" alt=""></a>
             <a href="index.php?act=cart.php"><img src="img/icon/cart.png" onclick="myFunction()" alt="">
                 <span>0</span></a>
             <div class="price">$0.00</div>
 
-=======
+            =======
 
             <a href="#"><img src="img/icon/heart.png" alt=""></a>
             <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
             <div class="price">$0.00</div>
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
+            >>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__text">
@@ -159,9 +157,8 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="index.php?act=xemdonhang"><img src="" alt="">Xem đơn hàng</a>
-                        <a href="index.php?act=addtocart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">0.00 VND</div>
+                        <a href="index.php?act=addtocart"><img src="img/icon/cart.png" alt=""> <span></span></a>
+                        <div class="price"></div>
                     </div>
                 </div>
             </div>

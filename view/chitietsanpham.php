@@ -9,9 +9,9 @@ echo '
         <div >
             <div class="col-lg-12">
                 <div class="product__details__breadcrumb">
-                    <a href="./index.php">Home</a>
-                    <a href="./shop.php">Shop</a>
-                    <span>Product Details</span>
+                    <a href="./index.php">Trang chủ</a>
+                    <a href="./shop.php">Sản phẩm</a>
+                    <span>Chi tiết sản phẩm</span>
                 </div>
             </div>
         </div>
@@ -42,15 +42,13 @@ echo '
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
+                                <span> - 5 Đánh giá</span>
                             </div>
                             <h3 class="price">' . number_format($price_sp, 0, '.', '.') . ' .VND</h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                        
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
-                                    <span>Size:</span>
+                                    <span>Kích thước:</span>
                                     <label for="xxl">xxl
                                         <input type="radio" id="xxl">
                                     </label>
@@ -65,7 +63,7 @@ echo '
                                     </label>
                                 </div>
                                 <div class="product__details__option__color">
-                                    <span>Color:</span>
+                                    <span>Màu:</span>
                                     <label class="c-1" for="sp-1">
                                         <input type="radio" id="sp-1">
                                     </label>
@@ -98,11 +96,9 @@ echo '
                                 <a class="primary-btn" id="btn-add" href="index.php?act=addtocart&id=' . $id_sp . '">ADD TO CART</a>
                             </div>
                             <div class="product__details__btns__option">
-                                <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                                <a href="index.php?act=addtocart&id=' . $id_sp . '"><i class="fa fa-exchange"></i> Add To Compare</a>
                             </div>
                             <div class="product__details__last__option">
-                                <h5><span>Guaranteed Safe Checkout</span></h5>
+                                <h5><span>Đảm bảo thanh toán an toàn</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
                                     <li><span>SKU:</span> 3812912</li>

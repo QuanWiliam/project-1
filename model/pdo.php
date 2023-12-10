@@ -1,11 +1,8 @@
 <?php
 function pdo_get_connection()
 {
-<<<<<<< HEAD
+
     $dburl = "mysql:host=localhost;dbname=fashion_one;charset=utf8";
-=======
-    $dburl = "mysql:host=localhost;dbname=backup_da;charset=utf8";
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
     $username = 'root';
     $password = '';
 

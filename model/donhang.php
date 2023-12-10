@@ -1,8 +1,10 @@
 <?php
-function themDonHang($total)
+function themDonHang($total, $date)
 {
     $id_tk = $_SESSION['user']['id_tk'];
-    $sql = "INSERT INTO `order`(id_tk, status, total) VALUES ($id_tk, 0, $total)";
+    // $date = date('d/m/Y');
+    $sql = "INSERT INTO `order`(`id_tk`, `status`, `date`, `total`) 
+    VALUES ('$id_tk',0,'$date','$total')";
     return pdo_execute_return_id_bill($sql);
 }
 

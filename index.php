@@ -1,5 +1,5 @@
 <?php
-// ob_start();
+ob_start();
 session_start();
 include "model/pdo.php";
 include "model/sanpham.php";
@@ -7,7 +7,6 @@ include "model/danhmuc.php";
 include "model/taikhoan.php";
 include "model/donhang.php";
 include "model/giohang.php";
-include "model/donhang.php";
 
 
 // để tránh include "view/header.php"; vào trang đăng nhập và đăng kí
@@ -125,7 +124,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         $_SESSION['user'] = $checkuser;
 
                         // Đặt'$previous' chỉ khi không có giá trị trước đó
-                        header('Location: ../index.php');
+                        header('Location: index.php');
                     } else {
                         $thongbao = "Bạn nhập sai thông tin";
                     }
@@ -174,7 +173,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             exit();
 
         case "addtocart":
-<<<<<<< HEAD
             if (isset($_GET['id']) && $_GET['id']) {
                 $amount = isset($_GET['amount']) ? $_GET['amount'] : 1;
                 $id = $_GET['id'];
@@ -195,15 +193,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "view/cart.php";
             break;
         case 'listcart':
-=======
->>>>>>> 842f5652f1ab0c7e34d5332bb7cf826c91f39631
             if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
                 echo '
                     <div class=" container h-75">
                       <h1>Hãy đăng nhập để sử dụng dịch vụ của chúng tôi</h1>
                     </div>
                     ';
-            }else{
+            } else {
                 if (isset($_GET['id']) && $_GET['id']) {
                     $amount = isset($_GET['amount']) ? $_GET['amount'] : 1;
                     $id = $_GET['id'];
@@ -260,7 +256,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'thanhtoan':
             if (isset($_POST['btn-payment'])) {
                 $total = $_POST['total'];
-                $idBill = themDonHang($total);
+                $date = date('Y/m/d');
+                $idBill = themDonHang($total, $date);
                 $tk = load_giohang_tk($_SESSION['user']['id_tk']);
                 extract($tk);
                 $listId = loadAllGioHang($id_giohang);
@@ -279,7 +276,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                       <h1>Hãy đăng nhập để sử dụng dịch vụ của chúng tôi</h1>
                     </div>
                     ';
-            }else{
+            } else {
 
                 include "view/xemdonhang.php";
             }
@@ -288,8 +285,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 } else {
     include "view/home.php";
 }
-// include "view/footer.php";
-// ob_end_flush();
+include "view/footer.php";
+ob_end_flush();
 if (isset($_GET['act']) && $_GET['act'] != "dangnhap" && $_GET['act'] != "dangki") {
     include "view/footer.php";
 } elseif (!isset($_GET['act'])) {

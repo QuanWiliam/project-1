@@ -34,7 +34,7 @@ $thongbao = "";
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Đăng ký</h2>
                         <form action="" method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -60,7 +60,7 @@ $thongbao = "";
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Or login with</span>
+                            <span class="social-label">Đăng nhập với</span>
                             <ul class="socials">
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>

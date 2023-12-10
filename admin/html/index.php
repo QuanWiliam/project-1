@@ -1,12 +1,20 @@
 <?php
 ob_start();
+session_start();
 include "../../model/pdo.php";
 include "../../model/danhmuc.php";
 include "../../model/taikhoan.php";
 include "../../model/sanpham.php";
 include "../../model/donhang.php";
 include "../../model/binhluan.php";
-include "../html/header.php";
+
+
+if (isset($_GET['act']) && $_GET['act'] != "dangnhap") {
+    include "../html/header.php";
+} elseif (!isset($_GET['act'])) {
+    include "../html/header.php";
+}
+
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -280,11 +288,41 @@ if (isset($_GET['act'])) {
         case "thongke":
             include "../html/thongke.php";
             break;
+        // case "dangnhap":
+        //     if(isset($_POST['dangnhap']) && $_POST['dangnhap']){
+        //         $ten = $_POST['ten'];
+        //         $mk = $_POST['matkhau'];
+
+        //         if($ten == "" || $mk == ""){
+        //             echo '<script>
+        //             alert("nhập đầy đủ thông tin");
+        //             </script>';
+        //         }else{
+        //             $checkuser = check_taikhoan($ten,$mk);
+        //             if(is_array($checkuser)){
+        //                 $_SESSION['user'] = $checkuser;
+        //                 header("location: ../html/index.php");
+        //             }else{
+        //                 echo '<script>
+        //             alert("nhập sai thông tin");
+        //             </script>';
+        //             }
+        //         }
+        //     }
+        //     include "../html/dangnhap.php";
+        //     break;
     }
 
 } else {
+    
     include "../html/home.php";
 }
-include "../html/footer.php";
+
+if (isset($_GET['act']) && $_GET['act'] != "dangnhap") {
+    include "../html/footer.php";
+} elseif (!isset($_GET['act'])) {
+    include "../html/footer.php";
+}
+
 ob_end_flush();
 ?>

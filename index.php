@@ -124,7 +124,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         $_SESSION['user'] = $checkuser;
 
                         // Đặt'$previous' chỉ khi không có giá trị trước đó
-                        header('Location: ../index.php');
+                        header('Location: index.php');
                     } else {
                         $thongbao = "Bạn nhập sai thông tin";
                     }

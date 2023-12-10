@@ -14,11 +14,11 @@
                 </label><br>
                 <input type="text" class="form-control" name="name_tk" value="<?= $name_tk ?>"><br>
                 <label for="">
-                    Mật khẩu người dùng
+                    Mật khẩu
                 </label><br>
                 <input type="text" class="form-control" name="pass_tk" value="<?= $pass_tk ?>"><br>
                 <label for="">
-                    Email người dùng
+                    Email 
                 </label><br>
                 <input type="text" class="form-control" name="email_tk" value="<?= $email_tk ?>"><br>
                 

@@ -52,7 +52,7 @@ if (isset($_GET['act'])) {
         case "xoadm":
             if (isset($_GET['id_danhmuc']) && ($_GET['id_danhmuc']) > 0) {
                 $id = $_GET['id_danhmuc'];
-                delete_danhmuc($id);
+                delete_danhmuc(0);
             }
             $listdm = load_all_dm();
             include "../html/danhmuc/list_danhmuc.php";

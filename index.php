@@ -153,7 +153,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     if (isset($adduser)) {
                         $_SESSION['user'] = $adduser;
 
-                        header('Location: ../index.php');
+                        header('Location: index.php');
 
                         exit();
                     }

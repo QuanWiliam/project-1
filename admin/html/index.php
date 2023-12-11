@@ -10,6 +10,7 @@ include "../../model/binhluan.php";
 include "../../model/giohang.php";
 include "../../model/thongke.php";
 include "../html/header.php";
+
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -331,8 +332,11 @@ if (isset($_GET['act'])) {
     }
 
 } else {
+
     include "../html/home.php";
 }
+
 include "../html/footer.php";
+
 ob_end_flush();
 ?>

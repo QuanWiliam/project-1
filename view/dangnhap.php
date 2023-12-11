@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Đăng Nhập</title>
 
-
     <link rel="stylesheet" href="signin_up/fonts/material-icon/css/material-design-iconic-font.min.css">
-
-
     <link rel="stylesheet" href="signin_up/css/style2.css">
 </head>
 
@@ -43,6 +43,7 @@
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="your_pass" placeholder="Password" />
+                                <label for="togglePassword" id="hienmk"><i class="fa-solid fa-eye"></i></label>
                                 <p style="color: red;">
                                     <?= $thongbao ?>
                                 </p>
@@ -74,3 +75,21 @@
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
+
+<style>
+    #hienmk {
+        margin-left: 270px;
+    }
+</style>
+
+<script>
+    const togglePassword = document.getElementById('hienmk');
+    const passwordField = document.getElementById('your_pass');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+</script>

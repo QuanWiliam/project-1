@@ -57,23 +57,9 @@
                                             <a href="index.php?act=addtocart&id=' . $id_sp . '" class="add-cart">Thêm vào giỏ hàng</a>
 
                                             <div class="rating">
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
                                             </div>
                                             <h5>' . number_format($price_sp, 0, '.', '.') . '.VND</h5>
                                             <div class="product__color__select">
-                                                <label for="pc-4">
-                                                    <input type="radio" id="pc-4">
-                                                </label>
-                                                <label class="active black" for="pc-5">
-                                                    <input type="radio" id="pc-5">
-                                                </label>
-                                                <label class="grey" for="pc-6">
-                                                    <input type="radio" id="pc-6">
-                                                </label>
                                             </div>
                                         </div>
                                     </div>

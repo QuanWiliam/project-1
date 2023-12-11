@@ -13,37 +13,44 @@
                 </thead>
                 <tbody>
 
-
                     <?php
                     foreach ($lisorder as $order) {
                         extract($order);
-                        $xoadh = "index.php?act=xoadh&id_order=" . $id_order;
+                        $huydh = "index.php?act=huydh&id_order=" . $id_order;
                         $tthai = [
                             "0" => "Chưa xác nhận",
                             "1" => "Đã xác nhận",
                             "2" => "Chờ vận chuyển",
                             "3" => "Đã vận chuyển",
-                            "4" => "Giao hàng thành công"
+                            "4" => "Giao hàng thành công",
+                            "5" => "Đơn Đã Hủy"
                         ];
                         ?>
-                        <tr>
-                            <td>
-                                <?= $id_tk ?>
-                            </td>
-                            <td>
-                                <?= $tthai[$status] ?>
-                            </td>
-                            <td>
-                                <?= $total ?>
-                            </td>
-                            <td>
-                                <a href="../html/index.php?act=updatedh&id=<?= $id_order ?>">Thay Đổi Trạng Thái</a>
-                            </td>
-                            <td>
-                                <a href="<?= $xoadh ?>">Xóa Đơn Hàng</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <?= $id_tk ?>
+                        </td>
+                        <td>
+                            <?= $tthai[$status] ?>
+                        </td>
+                        <td>
+                            <?= $total ?>
+                        </td>
+                        <td>
+                            <form action="index.php?act=updatett" method="post">
+                                <input type="hidden" name="id_order" value="<?= $id_order ?>">
+                                <input type="hidden" name="tthai" value="<?= $status + 1 ?>">
+                                <input <?= $status == 4 || $status == 5 ? "hidden" : "" ?> type="submit" name="updatett"
+                                    value="Thay Đổi Trạng Thái">
+                            </form>
+                        </td>
+                        <td>
+                            <a style="display: <?= $status != 5 && $status != 0 ? "none" : "" ?>"
+                                href="<?= $huydh ?>"><?= $status == 5 ?"":"Hủy Đơn Hàng" ?></a>
+                        </td>
+                    </tr>
                     <?php } ?>
+
                 </tbody>
             </table>
         </div>

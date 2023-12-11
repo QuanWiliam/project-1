@@ -119,7 +119,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 } else {
                     // Đảm bảo hàm check_taikhoan() được định nghĩa và trả về dữ liệu một cách chính xác
                     $checkuser = check_taikhoan($username, $password);
-
+                    insert_giohang($checkuser['id_tk']);
                     if (is_array($checkuser)) {
                         $_SESSION['user'] = $checkuser;
 
@@ -150,13 +150,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $thongbao = "Hãy nhập đầy đủ thông tin!";
                 } else {
                     $adduser = insert_taikhoan($username, $password, $email, $address, $tel);
-                    if (isset($adduser)) {
-                        $_SESSION['user'] = $adduser;
 
-                        header('Location: index.php');
 
-                        exit();
-                    }
+                    $_SESSION['user'] = $adduser;
+
+                    header('Location: ?act=dangnhap');
+
+                    exit();
+
                 }
             }
             include 'view/dangki.php';
@@ -173,6 +174,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             exit();
 
         case "addtocart":
+            if (empty($_SESSION['user']))
+                header("Location: /project-1?act=dangnhap");
             if (isset($_GET['id']) && $_GET['id']) {
                 $amount = isset($_GET['amount']) ? $_GET['amount'] : 1;
                 $id = $_GET['id'];
@@ -285,7 +288,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 } else {
     include "view/home.php";
 }
-include "view/footer.php";
 ob_end_flush();
 if (isset($_GET['act']) && $_GET['act'] != "dangnhap" && $_GET['act'] != "dangki") {
     include "view/footer.php";

@@ -7,7 +7,7 @@ include "../../model/taikhoan.php";
 include "../../model/sanpham.php";
 include "../../model/donhang.php";
 include "../../model/binhluan.php";
-
+include "../../model/giohang.php";
 include "../../model/thongke.php";
 include "../html/header.php";
 
@@ -87,6 +87,7 @@ if (isset($_GET['act'])) {
             if (isset($_POST['themmoisp']) && ($_POST['themmoisp'])) {
                 $name_sp = $_POST['name_sp'];
                 $price_sp = $_POST['price_sp'];
+                $soluong = $_POST['soluong'];
                 $id_danhmuc = $_POST['id_danhmuc'];
                 $mota = $_POST['mota_sp'];
 
@@ -94,7 +95,7 @@ if (isset($_GET['act'])) {
                 $target_div = "../../upload/";
                 $target_file = $target_div . basename($_FILES['img_sp']['name']);
                 move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file);
-                if ($name_sp == "" || $price_sp == "" || $id_danhmuc == "" || $target_file == "" || $mota == "") {
+                if ($name_sp == "" || $price_sp == "" || $soluong <= 0 || $soluong == "" || $id_danhmuc == "" || $target_file == "" || $mota == "") {
                     echo '
                 <script>
                         function thongbao(){
@@ -104,7 +105,7 @@ if (isset($_GET['act'])) {
                         </script>
                 ';
                 } else {
-                    insert_sanpham($name_sp, $img_sp, $price_sp, $mota, $id_danhmuc);
+                    insert_sanpham($name_sp, $img_sp, $price_sp, $soluong, $mota, $id_danhmuc);
                     echo '
                 <div class="container mt-3">
                         <div class="alert alert-success alert-dismissible">
@@ -267,21 +268,25 @@ if (isset($_GET['act'])) {
             $lisorder = load_all_donhang();
             include_once "../html/order/listorder.php";
             break;
-        case "updatedh":
-            $id = $_GET['id'];
-            $listdh = load_one_donhang($id);
-            include "../html/order/updateoder.php";
-            break;
-        case "updatethanhcong":
-            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+        case "updatett":
+            if (isset($_POST['updatett'])) {
                 $id = $_POST['id_order'];
                 $status = $_POST['tthai'];
-
                 update_donhang($status, $id);
+                $donhang = load_one_donhang($id);
+                $tk = load_giohang_tk($_SESSION['user']['id_tk']);
+                extract($tk);
+                $listId = load_all_dh($id);
+                if ($donhang['status'] == 1) {
+                    foreach ($listId as $key => $value) {
+                        tru_soluong($value['id_sp'], $value['soluong']);
+                    }
+                }
             }
-            header("Location: index.php?act=listdonhang");
+            $lisorder = load_all_donhang();
+            include "../html/order/listorder.php";
             break;
-        case "xoadh":
+        case "huydh":
             if (isset($_GET['id_order'])) {
                 $id_order = $_GET['id_order'];
                 delete_donhang($id_order);
@@ -327,7 +332,7 @@ if (isset($_GET['act'])) {
     }
 
 } else {
-    
+
     include "../html/home.php";
 }
 

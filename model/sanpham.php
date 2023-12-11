@@ -1,7 +1,7 @@
 <?php
-function insert_sanpham($name, $img, $price, $mota, $id_danhmuc)
+function insert_sanpham($name, $img, $price, $soluong, $mota, $id_danhmuc)
 {
-  $sql = "insert into sanpham(name_sp,img_sp,price_sp,mota,id_danhmuc) value('$name','$img','$price','$mota','$id_danhmuc')";
+  $sql = "insert into sanpham(name_sp,img_sp,price_sp,soluong,mota,id_danhmuc) value('$name','$img','$price','$soluong','$mota','$id_danhmuc')";
   pdo_execute($sql);
 }
 function delete_sanpham($id)

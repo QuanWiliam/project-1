@@ -32,6 +32,11 @@ if (is_array($onesp)) {
                 </label><br>
                 <input type="text" class="form-control" name="price_sp" id="price_sp"
                     value="<?= isset($onesp['price_sp']) ? $onesp['price_sp'] : '' ?>"><br>
+                <label for="">
+                    Số lượng sản phẩm
+                </label><br>
+                <input type="text" class="form-control" name="soluong" id="soluong"
+                    value="<?= isset($onesp['soluong']) ? $onesp['soluong'] : '' ?>"><br>
                 <label for="img_sp">
                     Ảnh sản phẩm
                 </label><br>

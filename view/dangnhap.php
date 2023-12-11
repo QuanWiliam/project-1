@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Đăng Nhập</title>
 
     <link rel="stylesheet" href="signin_up/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -34,13 +36,17 @@
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="your_name" placeholder="Your Name" />
-                                <p style="color: red;"><?= $thongbao ?></p>
+                                <p style="color: red;">
+                                    <?= $thongbao ?>
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="your_pass" placeholder="Password" />
-                                    <label for="togglePassword" id="hienmk"><i class="fa-solid fa-eye"></i></label>
-                                <p style="color: red;"><?= $thongbao ?></p>
+                                <label for="togglePassword" id="hienmk"><i class="fa-solid fa-eye"></i></label>
+                                <p style="color: red;">
+                                    <?= $thongbao ?>
+                                </p>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
@@ -52,15 +58,11 @@
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Hoặc có thể đăng nhập với</span>
                             <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
@@ -75,13 +77,13 @@
 </html>
 
 <style>
-    #hienmk{
+    #hienmk {
         margin-left: 270px;
     }
 </style>
 
 <script>
-  const togglePassword = document.getElementById('hienmk');
+    const togglePassword = document.getElementById('hienmk');
     const passwordField = document.getElementById('your_pass');
 
     togglePassword.addEventListener('click', function () {

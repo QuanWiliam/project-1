@@ -21,6 +21,13 @@ function load_all_donhang()
     return $list;
 }
 
+function load_all_dh($id_order)
+{
+    $sql = "SELECT * FROM `order_detail` WHERE ID_ORDER = $id_order";
+    $list = pdo_query($sql);
+    return $list;
+}
+
 function load_one_donhang($id)
 {
     $sql = "SELECT * FROM `order` WHERE id_order = $id";
@@ -30,13 +37,13 @@ function load_one_donhang($id)
 
 function update_donhang($status, $id_order)
 {
-    $sql = "UPDATE `order` SET `status` = $status WHERE `order`.`id_order` = $id_order";
+    $sql = "UPDATE `order` SET `status` = $status WHERE `id_order` = $id_order";
     pdo_execute($sql);
 }
 
 function delete_donhang($id_order)
 {
-    $sql = "DELETE FROM `order` WHERE `id_order` = $id_order ";
+    $sql = "UPDATE `order` SET `status` = 5 WHERE `id_order` = $id_order";
     pdo_execute($sql);
 }
 ?>

@@ -37,48 +37,13 @@ echo '
                         <div class="product__details__text">
                             <h4>' . $name_sp . '</h4>
                             <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span> - 5 Đánh giá</span>
                             </div>
                             <h3 class="price">' . number_format($price_sp, 0, '.', '.') . ' .VND</h3>
                         
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
-                                    <span>Kích thước:</span>
-                                    <label for="xxl">xxl
-                                        <input type="radio" id="xxl">
-                                    </label>
-                                    <label class="active" for="xl">xl
-                                        <input type="radio" id="xl">
-                                    </label>
-                                    <label for="l">l
-                                        <input type="radio" id="l">
-                                    </label>
-                                    <label for="sm">s
-                                        <input type="radio" id="sm">
-                                    </label>
                                 </div>
                                 <div class="product__details__option__color">
-                                    <span>Màu:</span>
-                                    <label class="c-1" for="sp-1">
-                                        <input type="radio" id="sp-1">
-                                    </label>
-                                    <label class="c-2" for="sp-2">
-                                        <input type="radio" id="sp-2">
-                                    </label>
-                                    <label class="c-3" for="sp-3">
-                                        <input type="radio" id="sp-3">
-                                    </label>
-                                    <label class="c-4" for="sp-4">
-                                        <input type="radio" id="sp-4">
-                                    </label>
-                                    <label class="c-9" for="sp-9">
-                                        <input type="radio" id="sp-9">
-                                    </label>
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
@@ -87,7 +52,7 @@ echo '
                                         <button class=" border-0 bg-0" id="decrease">
                                         <i class="fa-solid fa-minus"></i>
                                         </button>
-                                        <span type="text" id="quantity">1</span>
+                                        <span data-quantity = "' . $soluong . '" type="text" id="quantity">1</span>
                                         <button class=" border-0 bg-0" id="increase">
                                         <i class="fa-solid fa-plus"></i>
                                         </button>
@@ -98,13 +63,6 @@ echo '
                             <div class="product__details__btns__option">
                             </div>
                             <div class="product__details__last__option">
-                                <h5><span>Đảm bảo thanh toán an toàn</span></h5>
-                                <img src="img/shop-details/details-payment.png" alt="">
-                                <ul>
-                                    <li><span>SKU:</span> 3812912</li>
-                                    <li><span>Categories:</span> Clothes</li>
-                                    <li><span>Tag:</span> Clothes, Skin, Body</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -125,24 +83,12 @@ echo '
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-5" role="tabpanel">
                                     <div class="product__details__tab__content">
-                                        <p class="note">Nam tempus turpis at metus scelerisque placerat nulla deumantos
-                                            solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis
-                                            ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo
-                                        pharetras loremos.</p>
                                         <div class="product__details__tab__content__item">
-                                            <h5>Products Infomation</h5>
+                                            <h5>Mô tả</h5>
                                             <p>' . $mota . '</p>
                                             
                                         </div>
                                         <div class="product__details__tab__content__item">
-                                            <h5>Material used</h5>
-                                            <p>Polyester is deemed lower quality due to its none natural quality’s. Made
-                                                from synthetic materials, not natural like wool. Polyester suits become
-                                                creased easily and are known for not being breathable. Polyester suits
-                                                tend to have a shine to them compared to wool and cotton suits, this can
-                                                make the suit look cheap. The texture of velvet is luxurious and
-                                                breathable. Velvet is a great choice for dinner party jacket and can be
-                                            worn all year round.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -228,32 +174,37 @@ echo '
 <!-- Related Section End -->
 
 <script>
-    // Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
-    const btnAdd = document.getElementById("btn-add");
-    let link = btnAdd.href;
-    let quantity = 1;
+// Tạo biến để lưu trữ số lượng sản phẩm trong giỏ hàng
+const btnAdd = document.getElementById("btn-add");
+let link = btnAdd.href;
+let quantity = 1;
 
-    // Xử lý sự kiện click của nút tăng số lượng
-    document.querySelector("#increase").addEventListener("click", function () {
-        // Tăng số lượng lên 1
-        quantity++;
-        btnAdd.href = `${link}&amount=${quantity}`
-        // Cập nhật số lượng trong giỏ hàng
-        document.querySelector("#quantity").textContent = quantity;
-    });
+// Xử lý sự kiện click của nút tăng số lượng
+document.querySelector("#increase").addEventListener("click", function() {
+    // Tăng số lượng lên 1
+    let amount = document.querySelector("#quantity")
+    let sl = amount.dataset.quantity
+    if (quantity >= sl) {
+        return
+    }
+    quantity++;
+    btnAdd.href = `${link}&amount=${quantity}`
+    // Cập nhật số lượng trong giỏ hàng
+    document.querySelector("#quantity").textContent = quantity;
+});
 
-    // Xử lý sự kiện click của nút giảm số lượng
-    document.querySelector("#decrease").addEventListener("click", function () {
-        // Giảm số lượng xuống 1
-        quantity--;
+// Xử lý sự kiện click của nút giảm số lượng
+document.querySelector("#decrease").addEventListener("click", function() {
+    // Giảm số lượng xuống 1
+    quantity--;
 
-        // Kiểm tra số lượng có còn lớn hơn 0 không
-        if (quantity < 1) {
-            // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
-            quantity = 1;
-        }
-        btnAdd.href = `${link}&amount=${quantity}`
-        // Cập nhật số lượng trong giỏ hàng
-        document.querySelector("#quantity").textContent = quantity;
-    });
+    // Kiểm tra số lượng có còn lớn hơn 0 không
+    if (quantity < 1) {
+        // Nếu số lượng nhỏ hơn 0, thì đặt số lượng thành 1
+        quantity = 1;
+    }
+    btnAdd.href = `${link}&amount=${quantity}`
+    // Cập nhật số lượng trong giỏ hàng
+    document.querySelector("#quantity").textContent = quantity;
+});
 </script>

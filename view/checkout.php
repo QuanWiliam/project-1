@@ -50,7 +50,7 @@
                                 $tong += $total;
                                 echo '
                                 <ul class="checkout__total__products">
-                                <li>' . $name_sp . '<span>$' . number_format($total, 0, '.', '.') . '.VND</span></li>
+                                <li>' . $name_sp . '   X ' . $amount . '<span>' . number_format($total, 0, '.', '.') . '.VND</span></li>
                                 </ul>';
                             }
                             ?>
@@ -61,6 +61,8 @@
                                 </ul>'
                                 ?>
                             <input type="hidden" name="total" value="<?= $tong ?>">
+                            <input type="hidden" name="soluong" value="<?= $soluong ?>">
+                            <input type="hidden" name="id_giohang" value="<?= $id_giohang ?>">
                             <button name="btn-payment" class="site-btn" type="submit">Thanh toán</button>
                         </div>
                     </div>

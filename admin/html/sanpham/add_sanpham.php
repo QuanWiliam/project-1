@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
     <div class="form_add">
         <h1>Thêm sản phẩm</h1>
@@ -25,6 +24,10 @@
                     Giá sản phẩm
                 </label><br>
                 <input type="text" class="form-control" name="price_sp" placeholder="Hãy nhập giá sản phẩm"><br>
+                <label for="">
+                    Số lượng sản phẩm
+                </label><br>
+                <input type="text" class="form-control" name="soluong" placeholder="Hãy nhập số lượng sản phẩm"><br>
                 <label for="">
                     Ảnh sản phẩm
                 </label><br>
